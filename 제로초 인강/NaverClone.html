@@ -93,7 +93,7 @@
         #header {
             text-align: left;
             position: relative;
-            height: 64px;
+            height: 41px;
         }
 
         #header-hamburger, #header-notice, #header-naverpay, #header-talk, #header-shop {
@@ -239,14 +239,18 @@
                     text-align: left;
                 }
 
+                #search > form:hover {
+                    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);
+                }
+
                 #search-svg {
                     display: inline-flex;
                     justify-content: ceter;
                     align-items: center;
                     width: 67px;
-                    margin-right: 12px;
+                    margin-right: -27px;
                     height: 100%;
-                    padding-left: 10px;
+                    padding-left: 20px;
                 }
 
                 #search-svg svg {
@@ -259,11 +263,18 @@
                     width: 480;
                     height: 100%;
                     padding: 17px 0;
-                    font-size: 1rem;
+                    font-size: 1.5rem;
                     line-height: 24px;
-                    font-weight: bold;
                     border: none;
                     outline: none;
+                }
+
+                #search-input::placeholder {
+                    color: white;
+                }
+
+                #search-input:focus::placeholder {
+                    color: #e4e4e4;
                 }
 
                 #search-right {
@@ -290,6 +301,10 @@
                     height: 16px;
                 }
 
+                #search-keyboard:hover::before {
+                    filter: brightness(0.7);
+                }
+
                 #search-recent::before{
                     content: "";
                     display: block;
@@ -299,6 +314,10 @@
                     background-repeat: no-repeat;
                     width: 10px;
                     height: 6px;
+                }
+
+                #search-button {
+                    padding: 17px 27px 16px 10px;
                 }
 
                 #search-button::before{
