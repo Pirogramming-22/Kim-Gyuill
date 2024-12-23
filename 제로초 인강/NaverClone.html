@@ -97,10 +97,10 @@
 
         #header-hamburger {
             position: absolute;
-            top: 18px;
-            left: 1px;
-            margin-top: 18px;
-            padding: 10px;
+            top: -22px;
+            left: -17px;
+            margin-top: 10px;
+            padding: 15px;
             display: inline-block;
             background: none;
             border: none;
@@ -110,27 +110,37 @@
         #header-hamburger:hover::before {
             position: absolute;
             content: ' ';
-            left: 1px;
-            top: 1px;
+            left: 3px;
+            top: 3px;
             width: 44px;
             height: 44px;
             background-color: var(--color_option_bg);
             border-radius: 50%;
-            padding: 9px;
+            padding: 3px;
         }
 
         #header-hamburger > div {
             background-image: url(./sp_main.png);
-            width: 26px;
-            height: 26px;
+            width: 29px; /* 크기를 30px로 설정 */
+            height: 29px; /* 크기를 30px로 설정 */
+            position: relative;
+            z-index: 1;
             background-repeat: no-repeat;
-            background-size: 422px 405px;
-            background-position: -285px -154px;
-        }
+            background-size: 470px 451px; /* 원본 이미지 비율을 유지하며 크기를 비례 확대 */
+            background-position: -318px -171px; /* 비례 확대에 따라 위치 조정 */        }   
 
 
         #main {
             height: 2000px;
+        }
+
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -139,7 +149,10 @@
         <div id="wrap-center">
             <div id="header">
                 <button id="header-hamburger">
+                    <!-- ::before -->
                     <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after -->
                 </button>
             </div>
             <div id="search"></div>
