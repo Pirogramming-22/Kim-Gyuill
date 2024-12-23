@@ -95,10 +95,9 @@
             position: relative;
         }
 
-        #header-hamburger {
+        #header-hamburger, #header-notice, #header-naverpay, #header-talk, #header-shop {
             position: absolute;
             top: -22px;
-            left: -17px;
             margin-top: 10px;
             padding: 15px;
             display: inline-block;
@@ -107,27 +106,77 @@
             cursor: pointer;
         }
 
-        #header-hamburger:hover::before {
+        #header-hamburger:hover::before, #header-naverpay:hover::before, #header-notice:hover::before, #header-talk:hover::before, #header-shop:hover::before{
             position: absolute;
             content: ' ';
-            left: 3px;
-            top: 3px;
             width: 44px;
             height: 44px;
+            left: 4px;
+            top: 5px;
             background-color: var(--color_option_bg);
             border-radius: 50%;
             padding: 3px;
         }
 
-        #header-hamburger > div {
+        #header-hamburger > div, #header-naverpay > div, #header-notice > div, #header-talk > div, #header-shop > div {
             background-image: url(./sp_main.png);
-            width: 29px; /* 크기를 30px로 설정 */
-            height: 29px; /* 크기를 30px로 설정 */
+            width: 29px; 
+            height: 29px; 
             position: relative;
             z-index: 1;
             background-repeat: no-repeat;
-            background-size: 470px 451px; /* 원본 이미지 비율을 유지하며 크기를 비례 확대 */
+            background-size: 470px 451px;
+        }
+
+        #header-hamburger {
+            left: -17px;
+        }
+
+        #header-hamburger > div {
             background-position: -318px -171px; /* 비례 확대에 따라 위치 조정 */        }   
+
+        #header-naverpay {
+            left: 34px;
+        }
+
+        #header-naverpay:hover::before {
+            left: 6px;
+            top: 5px;
+        }
+
+        #header-naverpay > div {
+            width: 32px;
+            height: 32px;
+            background-position: -252px -267px; /* 비례 확대에 따라 위치 조정 */        }   
+
+        #header-notice {
+            right: 36px;
+        }
+
+        #header-notice > div {
+            background-position: -318px -239px; /* 비례 확대에 따라 위치 조정 */        
+        }   
+
+        #header-talk {
+            right: 89px;
+        }
+
+        #header-talk > div {
+            background-position: -102px -325px;   
+        }   
+
+        #header-shop {
+            right: -14px;
+        }
+
+        #header-shop:hover::before {
+            left: 6px;
+            top: 5px;
+        }
+
+        #header-shop > div {
+            background-position: -34px -325px; /* 비례 확대에 따라 위치 조정 */        
+        }   
 
 
         #main {
@@ -152,6 +201,30 @@
                     <!-- ::before -->
                     <div></div>
                     <span class="blind">확장 영역</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-naverpay">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">네이버 페이</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-notice">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">알림</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-talk">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">네이버톡</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-shop">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">장바구니</span>
                     <!-- ::after -->
                 </button>
             </div>
