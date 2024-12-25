@@ -1,0 +1,257 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.svg">
+    <title>GitHub · Build and ship software on a single, collaborative platform · GitHub</title>
+    <style>
+        :root{
+            --color-workflow-card-bg: var(--bgColor-default);
+            --color-workflow-card-header-shadow: rgba(0, 0, 0, 0);
+            --color-bg-discussions-row-emoji-box: rgba(209, 213, 218, 0.5);
+            --color-notifications-row-read-bg: var(--bgColor-muted);
+            --color-notifications-row-bg: var(--bgColor-white);
+            --color-calendar-halloween-graph-day-L1-bg: #ffee4a;
+            --color-calendar-halloween-graph-day-L2-bg: #ffc501;
+            --color-calendar-halloween-graph-day-L3-bg: #fe9600;
+            --color-calendar-halloween-graph-day-L4-bg: #03001c;
+            --color-calendar-winter-graph-day-L1-bg: #B6E3FF;
+            --color-calendar-winter-graph-day-L2-bg: #54AEFF;
+            --color-calendar-winter-graph-day-L3-bg: #0969DA;
+            --color-calendar-winter-graph-day-L4-bg: #0A3069;
+            --color-calendar-graph-day-bg: #ebedf0;
+            --color-calendar-graph-day-border: rgba(27, 31, 35, 0.06);
+            --color-calendar-graph-day-L1-bg: #9be9a8;
+            --color-calendar-graph-day-L2-bg: #40c463;
+            --color-calendar-graph-day-L3-bg: #30a14e;
+            --color-calendar-graph-day-L4-bg: #216e39;
+            --color-calendar-graph-day-L1-border: rgba(27, 31, 35, 0.06);
+            --color-calendar-graph-day-L2-border: rgba(27, 31, 35, 0.06);
+            --color-calendar-graph-day-L3-border: rgba(27, 31, 35, 0.06);
+            --color-calendar-graph-day-L4-border: rgba(27, 31, 35, 0.06);
+            --color-user-mention-fg: var(--fgColor-default);
+            --color-mktg-btn-shadow-outline: rgba(0, 0, 0, 0.15) 0 0 0 1px inset;
+            --color-marketing-icon-primary: #218bff;
+            --color-marketing-icon-secondary: #54aeff;
+            --color-project-header-bg: #24292f;
+            --color-project-sidebar-bg: var(--bgColor-white);
+            --color-project-gradient-in: var(--bgColor-white);
+            --color-project-gradient-out: rgba(255, 255, 255, 0);
+            --color-diff-blob-selected-line-highlight-mix-blend-mode: multiply;
+            --color-text-white: var(--fgColor-white);
+        }
+        html, body {
+            font-size: 10.5px;
+            line-height: 10.5px;
+            margin: 0;
+            padding: 0;
+            letter-spacing: -0.4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+        }
+        #wrap {
+            text-align: center;
+        }
+
+        #wrap-center {
+            width: 1280px;
+            background-color: white;
+            display: inline-block;
+            padding: 10px;
+            padding-top: 132px;
+            padding-left: 108px;
+            
+        }
+
+        #header {
+            display: flex; /* 플렉스 박스 사용 */
+            align-items: center; /* 세로 정렬 */
+            justify-content: flex-start; /* 버튼들을 왼쪽 정렬 */
+            background-color: var(--color-project-header-bg);
+            height: 41px;
+            gap: 6px; /* 버튼 간격 */
+            position: relative; /* 부모 요소의 위치 */
+            padding-left: 10px;
+        }
+
+
+        #header svg{
+            fill: white;
+        }
+
+        #header button {
+            background: none;
+            border: none;
+            padding: 10px 5px; /* 버튼 내부 여백 */
+            cursor: pointer;
+            display: flex; /* 플렉스를 사용해 내부 아이템 정렬 */
+            align-items: center; /* 아이템 수직 중앙 정렬 */
+            text-align: left; /* 텍스트 왼쪽 정렬 */
+            color: white;
+        }
+
+        #header button span {
+            margin-right: 5px; /* 텍스트와 아이콘 간격 */
+        }
+
+        #header-logo{
+            left: -17;
+        }
+
+        #header-logo > img{
+            height: 32px;
+            width: 32px;
+            filter: invert(1); /* 색상 반전 */
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-size: 512px 512px;
+            background-position: 0px 0px;
+        }
+        #header-why {
+            width: 111px;
+            height: 40px;
+            margin-left: 13px;
+            margin-top: 2px;
+        }
+        #header-signin, #header-signup {
+            width: 56px;
+            margin-left: 9px;
+            margin-top: 2px;
+            margin-right: -4px;
+        }
+        #header-signup {
+            width: 57px;
+            border: 1px solid white !important;
+            border-radius: 6px;
+            height: 34px;
+        }
+        #header form {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-project-header-bg);
+            filter: brightness(1.9);
+            border-radius: 7px;
+            height: 34px;
+            margin-left: 250px;
+            width: 221px;
+        }
+
+        #header input {
+            position: relative;
+            border: none;
+            outline: none;
+            background-color: var(--color-project-header-bg);
+            border-radius: 7px;
+            width: 200px;
+            padding: 10px;
+            color: white;
+        }
+
+        #search-input:focus::placeholder {
+            color: var(--color-project-header-bg);
+        }
+        #header a {
+            color: white; /* 텍스트 색상을 흰색으로 설정 */
+            text-decoration: none; /* 밑줄 제거 */
+        }
+
+        #header a:hover {
+            text-decoration: underline; /* 선택적으로 hover 상태에서만 밑줄 표시 */
+            color: #f0f0f0; /* hover 시 색상 약간 밝게 (선택 사항) */
+        }
+
+
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="wrap-center">
+            <div id="header">
+                <button id="header-logo">
+                    <!-- ::before -->
+                    <img src="favicon.png" alt="깃허브 로고">
+                    <span class="blind">Logo</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-why">
+                    <!-- ::before -->
+                    <a href="#">Why GitHub?</a>
+                    <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                        <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <!-- ::after -->
+                </button>
+                <button id="header-team">
+                    <!-- ::before -->
+                    <a href="#">Team</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-enterprice">
+                    <!-- ::before -->
+                    <a href="#">Enterprice</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-explore">
+                    <!-- ::before -->
+                    <a href="#">Explore</a>
+                    <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                        <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <!-- ::after -->
+                </button>
+                <button id="header-marketplace">
+                    <!-- ::before -->
+                    <a href="#">Marketplace</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-pricing">
+                    <!-- ::before -->
+                    <a href="#">Pricing</a>
+                    <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                        <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <!-- ::after -->
+                </button>
+                <form action="">
+                    <input id="search-input" type="text" placeholder="Search Github" />
+                    <div id="search-right">
+                        <button href="#" id="search-keyboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#5E6062" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
+                            <span class="blind">입력도구</span>
+                        </button>
+                    </div>
+                </form>
+                <button id="header-signin">
+                    <!-- ::before -->
+                    <a href="#">Sign in</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-signup">
+                    <!-- ::before -->
+                    <a href="#">Sign up</a>
+                    <!-- ::after -->
+                </button>
+            </div>
+            <style>
+                #main{
+                    background-color: var(--color-project-header-bg);
+                }
+            </style>
+            <div id="main">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
