@@ -105,7 +105,21 @@
                 <div></div>
                 <div class="div2"></div>
             </footer>
+            
         </div>
     </div>
+    <script>
+        const inputs = document.querySelectorAll('#signup-section input');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value.trim() !== '') {
+                    input.classList.add('has-value'); /* 값이 있으면 클래스 추가 */
+                } else {
+                    input.classList.remove('has-value'); /* 값이 없으면 클래스 제거 */
+                }
+            });
+        });
+    </script>
 </body>
 </html>

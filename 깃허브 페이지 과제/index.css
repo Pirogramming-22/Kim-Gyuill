@@ -257,7 +257,13 @@ header {
     font-size: 14px;
 }
 #signup-section input:focus {
-    background-color: rgb(157, 205, 224);
+    background-color: #f0fbff;
+}
+
+#signup-section input.has-value {
+    border-color: #3c85c0;
+    background-color: #f0fbff;
+    color: #333;
 }
 
 #login-sentence {
