@@ -47,7 +47,11 @@
             margin: 0;
             padding: 0;
             letter-spacing: -0.4px;
+            background-color: var(--color-project-header-bg);
             font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+        }
+        header {
+            background-color: var(--color-project-header-bg);
         }
         #wrap {
             text-align: center;
@@ -55,7 +59,7 @@
 
         #wrap-center {
             width: 1280px;
-            background-color: white;
+            background-color: var(--color-project-header-bg);
             display: inline-block;
             padding: 10px;
             padding-top: 132px;
@@ -67,7 +71,6 @@
             display: flex; /* 플렉스 박스 사용 */
             align-items: center; /* 세로 정렬 */
             justify-content: flex-start; /* 버튼들을 왼쪽 정렬 */
-            background-color: var(--color-project-header-bg);
             height: 41px;
             gap: 6px; /* 버튼 간격 */
             position: relative; /* 부모 요소의 위치 */
@@ -245,11 +248,172 @@
             </div>
             <style>
                 #main{
-                    background-color: var(--color-project-header-bg);
+                    display: flex;
+                }
+                #text1{
+                    width: 500px;
+                    height: 165px;
+                    margin-top: 101px;
+                    margin-left: 142px;
+                }
+                #text1 > h1{
+                    position: relative;
+                    text-align: left;
+                    font-size: 58px;
+                    letter-spacing: 1px;
+                    line-height: 1.0;
+                    color:white;
+                }
+                #text2{
+                    width: 500px;
+                    height: 165px;
+                    margin-top: -47px;
+                    margin-left: 139px;
+                }
+
+                #text2 > p{
+                    position: relative;
+                    text-align: left;
+                    font-size: 19px;
+                    letter-spacing: 0px;
+                    line-height: 1.4;
+                    color:rgb(158, 158, 158);
+                }
+                #text2 > p > strong{
+                    color:white;
+                }
+                #text2 > p > strong u{
+                    text-decoration: none; /* 기본 밑줄 제거 */
+                    box-shadow: 0 0.7px 0 rgb(69, 69, 69);; /* 밑줄처럼 보이는 그림자 추가 */
+                }
+                #main-signup{
+                    width: 393px;
+                    height: 456px;
+                    margin-top: 7px;
+                    margin-left: 8px;
+                    border-radius: 5px;
+                    background-color: white;
                 }
             </style>
             <div id="main">
+                <div id="main-left">
+                    <div id="text1">
+                    <h1>Built for <br> developers</h1>
+                    </div>
+                    <div id="text2">
+                        <p>GitHub is a development platform inspired by the<br>way you work.From <strong><u>open source</u></strong> to <strong><u>business</u></strong>, you<br>can host and review code, manage projects, and<br>build software alongside 50 million developers.</p>
+                    </div>
+                </div>
+                <style>
+                    #main-right {
+                        display: flex;
+                        flex-direction: column; /* 내부 요소를 세로로 정렬 */
+                        align-items: flex-start; /* 왼쪽 정렬 */
+                        justify-content: flex-start; /* 상단 정렬 */
+                    }
+                
+                    #signup-section {
+                        width: 54%;
+                        height: 408px;
+                        background-color: white;
+                        padding: 25px 25px;
+                        border-radius: 5px;
+                        margin-right: 301px;
+                        margin-left: 9px;
+                        display: flex;
+                        margin-top: 6px;
+                        align-self: flex-start;
+                        flex-direction: column;
+                    }
+                
+                    #signup-section label {
+                        font-size: 14px;
+                        font-weight: bold;
+                        margin-top: 15px;
+                        padding-bottom: 5px;
+                        text-align: left;
+                        color: #656565;
+                    }
 
+                    #name{
+                        margin-top: 0px !important;
+                    }
+                
+                    #signup-section input {
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        width: 100%;
+                        height: 41px;
+                        padding: 12px;
+                        margin-top: 8px;
+                        border: 1px solid #ddd;
+                        border-radius: 4px;
+                        font-size: 14px;
+                    }
+                    #signup-section input:focus {
+                        background-color: rgb(157, 205, 224);
+                    }
+                
+                    #login-sentence {
+                        margin-top: 16px;
+                        font-size: 10px;
+                        color: gray;
+                        opacity: 0.8;
+                        line-height: 1.4;
+                        text-align: left;
+                    }
+                
+                    #loginbutton {
+                        margin-top: 10px;
+                        background-color: #3cc05b;
+                        border: none;
+                        color: white;
+                        width: 100%;
+                        padding: 25px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        border-radius: 4px;
+                    }
+                
+                    #loginbutton:hover {
+                        background-color: #259c3f;
+                    }
+                
+                    #last-sentence {
+                        margin-top: 26px;
+                        margin-bottom: 0px;
+                        font-size: 11px;
+                        color: #586069;
+                        line-height: 1.4;
+                        text-align: left;
+                        text-decoration: none;
+                    }
+
+                    #login-sentence > a, #last-sentence > a {
+                        text-decoration: none; /* 기본 상태에서 밑줄 제거 */
+                        color: blue; /* 링크 색상 설정 */
+                    }
+
+                    #login-sentence > a:hover, #last-sentence > a:hover {
+                        text-decoration: underline; /* 마우스를 올렸을 때 밑줄 추가 */
+                    }
+
+
+                    
+                </style>
+                <div id="main-right">
+                    <div id="signup-section">
+                        <label for="username" id="name">Username</label>
+                        <input type="name" id="username">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                        <p id="login-sentence">Make sure it's at least 15 characters OR at least 8 characters including a number and lowercase letter. <a href="#"">Learn more</a>.</p>
+                        <button id="loginbutton" type="button">Sign up for GitHub</button>
+                        <p id="last-sentence">By clicking "Sign up for GitHub", you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Statement</a>. We'll occasionally send you account related emails.</p>    
+                    </div>
+                </div>
             </div>
         </div>
     </div>
