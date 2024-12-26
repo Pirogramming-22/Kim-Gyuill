@@ -1,4 +1,5 @@
-year, month, day, hour, minute, second = input().split()
-
-print(year, month, day+'T', sep='-', end='')
-print(hour, minute, second, sep=':')
+s = """'Python' is a "programming language"
+that lets you work quickly
+and
+integrate systems more effectively."""
+print(s)
