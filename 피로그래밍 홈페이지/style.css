@@ -1,0 +1,108 @@
+@import "./reset.css";
+@import "./var.css";
+
+body{
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    outline: none;
+    width: min(1200px, 100%);
+    margin: auto;
+    background-color: #000;
+}
+.main-header{
+    height: 6.8rem;
+    width: 86%;
+    padding: 0 var(--offset);
+    padding-left: 32px;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 83%;
+    width: 97%;
+}
+
+.header-container #header-icon {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+}
+
+.header-container #header-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.main-header ul{
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+.selected-nav{
+    color: var(--green-1) !important;
+    color: #0bec12 !important;;
+}
+.main-header ul li {
+    position: relative;
+}
+
+.main-header ul li:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+}
+
+.section-portfolio {
+    margin-top: 6.8rem; /* 헤더 높이만큼 여백 추가 */
+    padding: 3rem; /* 섹션 내부 여백 */
+    padding-top: 0;
+    color: white; /* 텍스트 색상 */
+    min-height: 100vh; /* 섹션 최소 높이 */
+}
+
+.header-portfolio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 1px;
+    font-size: 20px;
+    margin-bottom: 37px;
+}
+
+.header-portfolio #center {
+    margin-left: 62px;
+}
+.header-portfolio #right:hover {
+    cursor: pointer;
+}
+
+.div-portfolio {
+    width: 100%;
+    background-color: var(--bg-gray);
+    border-radius: 10px;
+    padding: var(--gutter);
+    display: flex;
+    gap: var(--gutter);
+    margin-bottom: var(--gutter);
+    cursor: pointer;
+    position: relative;
+}
