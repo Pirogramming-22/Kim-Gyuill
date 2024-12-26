@@ -1,5 +1,3 @@
-s = """'Python' is a "programming language"
-that lets you work quickly
-and
-integrate systems more effectively."""
-print(s)
+a = input()
+b = input()
+print(a[1::2]+b[::2])
