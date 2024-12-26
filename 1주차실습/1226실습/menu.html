@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="nav-container">
+        <button class="hamburger">☰</button>
+        <nav class="nav-menu">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">SERVICE</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </div>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
