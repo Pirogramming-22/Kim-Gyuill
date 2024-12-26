@@ -124,6 +124,7 @@ a{
     transition: 0.3s;
     padding: 1rem 2rem;
 }
+
 .project-more{
     width: 20px;
     height: 20px;
@@ -141,15 +142,6 @@ a{
     background-color: var(--bg-5);
     transition: 0.3s;
 }
-
-
-.project-pic img {
-    width: 100%;
-    object-fit: contain;
-    transition: 0.3s;
-    padding: 1rem 2rem;
-}
-
 .project-content {
     display: flex;
     flex-direction: column;
@@ -158,12 +150,38 @@ a{
 }
 
 .project-content--name {
-    font-size: var(--heading3);
+    font-size: 21;
     font-weight: 900;
 }
 .project-content--introduction {
-    font-size: var(--body1);
+    font-size: 16;
     color: var(--subtext-gray);
     line-height: 2rem;
     word-break: keep-all;
+}
+.project-content--team {
+    display: flex
+;
+    gap: 10px;
+    margin-top: 15px;
+}
+.project-content--team li.leader {
+    background-color: var(--blue);
+    color: white;
+}
+.project-content--team li {
+    background-color: rgba(236, 236, 236, 0.466);
+    padding: 6px 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: black;
+}
+.div-portfolio:hover {
+    top: -2px;
+}
+.div-portfolio:hover .project-pic img {
+    transform: scale(1.1);
+}
+.div-portfolio:hover .more {
+  width: 50%;
 }
