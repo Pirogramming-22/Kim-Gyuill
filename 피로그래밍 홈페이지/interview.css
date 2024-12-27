@@ -1,0 +1,217 @@
+@import "./reset.css";
+@import "./var.css";
+
+body{
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    outline: none;
+    width: min(1200px, 100%);
+    margin: auto;
+    background-color: #000;
+}
+.main-header{
+    height: 6.8rem;
+    width: 86%;
+    padding: 0 var(--offset);
+    padding-left: 32px;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 83%;
+    width: 97%;
+}
+
+.header-container #header-icon {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+}
+
+.header-container #header-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.main-header ul{
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+.selected-nav{
+    color: var(--green-1) !important;
+    color: #0bec12 !important;;
+}
+.main-header ul li {
+    position: relative;
+}
+
+.main-header ul li:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+}
+
+.section-portfolio {
+    margin-top: 6.8rem;
+    padding: 3rem;
+    padding-top: 0;
+    color: white;
+    min-height: 100vh;
+}
+
+.header-portfolio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 1px;
+    font-size: 20px;
+    margin-bottom: 37px;
+}
+
+.header-portfolio #center {
+    margin-left: 62px;
+}
+.header-portfolio #right:hover {
+    cursor: pointer;
+}
+
+footer {
+    min-height: 26px;
+    background-color: var(--bg-gray);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 자식 요소들을 양쪽 끝으로 배치 */
+    align-items: center;
+    min-height: 209px;
+    background-color: #333333;
+    padding: 0 38px; /* 양쪽 여백 추가 */
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.footer-mail{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.emoji {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+}
+
+.emoji img {
+    transform: translate(12%, -16%);
+    width: 80%;
+    height: 146%;
+}
+.footer-nav{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.footer-top .footer-nav li {
+    padding: 0 1.3rem;
+    position: relative;
+}
+
+.footer-top .footer-nav li:not(:last-child) {
+    border-right: 1px solid var(--line-gray);
+}
+
+.footer-buttom{
+    opacity: 0.8;
+    font-size: 13px;
+    text-align: center;
+    padding: var(--gutter);
+}
+#hamburger-icon{
+    display: none;
+}
+@media screen and (max-width: 850px) {
+    #hamburger-icon {
+        display: flex;
+        width: 30px;
+        flex-direction: column;
+    }
+    #hamburger-icon > div{
+        height: 3px;
+        background-color: var(--white);
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+      #hamburger-icon > div:nth-of-type(1){
+        width: 50%;
+      }
+      #hamburger-icon > div:nth-of-type(2){
+        width: 100%;
+      }
+      #hamburger-icon > div:nth-of-type(3){
+        width: 75%;
+      }
+      #hamburger-icon > input{
+        display: none;
+      }
+      .main-header{
+        height: 7rem;
+      }
+      .main-header .header-container ul {
+        display: none;
+      }
+      .header-container{
+        width: 117%;
+      }
+}
+
+  @media screen and (max-width: 1080px) {
+    .footer-container {
+        flex-direction: column;
+        align-content: center;
+        padding-top: 20px;
+    }
+    .footer-buttom{
+        display: none;
+    }
+
+}
+@media screen and (min-width: 1600px) {
+    .header-container{
+        width: 80%;
+    }
+}
