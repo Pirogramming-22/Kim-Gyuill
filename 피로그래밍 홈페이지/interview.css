@@ -170,6 +170,10 @@ footer {
         width: 30px;
         flex-direction: column;
     }
+    #hamburger-icon:hover {
+        cursor: pointer;
+    }
+    
     #hamburger-icon > div{
         height: 3px;
         background-color: var(--white);
@@ -185,9 +189,7 @@ footer {
       #hamburger-icon > div:nth-of-type(3){
         width: 75%;
       }
-      #hamburger-icon > input{
-        display: none;
-      }
+
       .main-header{
         height: 7rem;
       }
