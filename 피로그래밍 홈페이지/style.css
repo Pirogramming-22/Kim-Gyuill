@@ -191,3 +191,121 @@ a{
 .div-portfolio:hover .more {
   width: 50%;
 }
+
+footer {
+    min-height: 26px;
+    background-color: var(--bg-gray);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 자식 요소들을 양쪽 끝으로 배치 */
+    align-items: center;
+    min-height: 209px;
+    background-color: #333333;
+    padding: 0 38px; /* 양쪽 여백 추가 */
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.footer-mail{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.emoji {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+}
+
+.emoji img {
+    transform: translate(12%, -16%);
+    width: 80%;
+    height: 146%;
+}
+.footer-nav{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.footer-top .footer-nav li {
+    padding: 0 1.3rem;
+    position: relative;
+}
+
+.footer-top .footer-nav li:not(:last-child) {
+    border-right: 1px solid var(--line-gray);
+}
+
+.footer-buttom{
+    opacity: 0.8;
+    font-size: 13px;
+    text-align: center;
+    padding: var(--gutter);
+}
+#hamburger-icon{
+    display: none;
+}
+@media screen and (max-width: 850px) {
+    #hamburger-icon {
+        display: flex;
+        width: 30px;
+        flex-direction: column;
+    }
+    #hamburger-icon > div{
+        height: 3px;
+        background-color: var(--white);
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+      #hamburger-icon > div:nth-of-type(1){
+        width: 50%;
+      }
+      #hamburger-icon > div:nth-of-type(2){
+        width: 100%;
+      }
+      #hamburger-icon > div:nth-of-type(3){
+        width: 75%;
+      }
+      #hamburger-icon > input{
+        display: none;
+      }
+      #hamburger-icon > input:checked ~ div:nth-of-type(1){
+        transform-origin: bottom;
+        transform: rotate(45deg) translate(4px, 0px);
+      }
+      #hamburger-icon > input:checked ~ div:nth-of-type(2){
+        transform-origin: top;
+        transform: rotate(-45deg);
+      }
+      #hamburger-icon > input:checked ~ div:nth-of-type(3){
+        transform-origin: bottom;
+        width: 50%;
+        transform: rotate(45deg) translate(7px, -13px);
+      }
+      .main-header{
+        height: 7rem;
+      }
+      .main-header .header-container ul {
+        display: none;
+      }
+      .header-container{
+        width: 117%;
+      }
+}
+
