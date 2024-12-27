@@ -96,19 +96,119 @@ a{
 }
 
 /* 인터뷰 섹션 */
+.section-interview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    gap: 15px;
+    row-gap: 30px;
+    padding: 0;
+}
+
 .div-interview {
+    position: relative; /* 부모 요소를 기준으로 자식 요소 위치 설정 */
     width: 100%;
     background-color: var(--bg-gray);
     border-radius: 10px;
-    padding: var(--gutter);
+    padding: 15px;
     display: flex;
-    gap: var(--gutter);
-    margin-bottom: var(--gutter);
+    flex-direction: column;
+    gap: 10px;
     cursor: pointer;
-    position: relative;
 }
 
+.div-interview:hover {
+    top: -2px;
+}
 
+.interview-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative; /* project-more의 위치를 조정하기 위해 상대적 위치 */
+}
+
+.interviewer-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.interviewer-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 사진 맞추기 */
+}
+
+.interview-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.interviewe-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff; /* 이름 색상 */
+}
+
+.project-more{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.div-interview:hover .more {
+    width: 50%;
+  }
+
+.project-more > div {
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-5);
+    transition: 0.3s;
+}
+.project-more > div:nth-child(1) {
+    margin-right: auto;
+}
+.project-more > div:nth-child(3) {
+    margin-left: auto;
+}
+
+.project-content-major {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 4px 8px;
+    margin-top: 7px;
+    color: #fff;
+    border-radius: 5px; 
+    white-space: nowrap; 
+}
+.major {
+    background-color: var(--blue);;
+}
+.by-major {
+    background-color: var(--badge-green);
+}
+.non-major {
+    background-color: var(--red);
+}
+
+.interviwe-buttom {
+    margin-top: 10px;
+}
+
+.interviewer-comment {
+    font-size: 15px;
+    color: #fff;
+}
 
 
 
