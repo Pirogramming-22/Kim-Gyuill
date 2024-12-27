@@ -219,7 +219,16 @@ a{
     color: #fff;
 }
 
-
+@media screen and (max-width: 950px) {
+    .section-interview{
+        grid-template-columns: repeat(2, 1fr); /* 3열 */
+    }
+}
+@media screen and (max-width: 600px) {
+    .section-interview{
+        grid-template-columns: repeat(1, 1fr); /* 3열 */
+    }
+}
 
 
 
