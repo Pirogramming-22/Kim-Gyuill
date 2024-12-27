@@ -95,6 +95,25 @@ a{
     cursor: pointer;
 }
 
+/* 인터뷰 섹션 */
+.div-interview {
+    width: 100%;
+    background-color: var(--bg-gray);
+    border-radius: 10px;
+    padding: var(--gutter);
+    display: flex;
+    gap: var(--gutter);
+    margin-bottom: var(--gutter);
+    cursor: pointer;
+    position: relative;
+}
+
+
+
+
+
+
+
 footer {
     min-height: 26px;
     background-color: var(--bg-gray);
