@@ -11,15 +11,15 @@ body{
     text-decoration: none;
     color: white;
     outline: none;
-    width: min(1200px, 100%);
+    width: 100%;
     margin: auto;
     background-color: #000;
 }
 .main-header{
     height: 6.8rem;
-    width: 86%;
-    padding: 0 var(--offset);
-    padding-left: 32px;
+    width: 100%;
+    padding: 0px 114px;
+    padding-left: 145px;
     position: fixed;
     top: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
@@ -30,7 +30,8 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 83%;
-    width: 97%;
+    width: 82%;
+    margin: 0 115px;
 }
 
 .header-container #header-icon {
@@ -71,11 +72,13 @@ a{
 }
 
 .section-portfolio {
+    width: min(1200px, 100%);
     margin-top: 6.8rem;
-    padding: 3rem;
+    margin: 7rem auto;
     padding-top: 0;
     color: white;
     min-height: 100vh;
+
 }
 
 .header-portfolio{
@@ -98,9 +101,9 @@ a{
 /* 인터뷰 섹션 */
 .section-interview {
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(3, 1fr); /* 3열 */
     gap: 15px;
-    row-gap: 30px;
     padding: 0;
 }
 
@@ -244,7 +247,7 @@ footer {
     align-items: center;
     min-height: 209px;
     background-color: #333333;
-    padding: 0 38px; /* 양쪽 여백 추가 */
+    padding: 0 158px; /* 양쪽 여백 추가 */
 }
 
 .footer-contact {
