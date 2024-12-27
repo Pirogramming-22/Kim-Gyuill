@@ -131,14 +131,23 @@ a{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    overflow: hidden;
-    background-color: #000;
+    overflow: hidden; 
+    background-color: #000; 
+    position: relative; 
 }
 
 .interviewer-pic img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 사진 맞추기 */
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.div-interview:hover .interviewer-pic img {
+    transform: scale(1.1);
 }
 
 .interview-content {
