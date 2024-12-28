@@ -1,0 +1,337 @@
+@import "./reset.css";
+@import "./var.css";
+
+body{
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    margin: auto;
+    background-color: #000;
+}
+.main-header{
+    height: 6.8rem;
+    width: min(1900px, 100%);
+    padding: 0px 114px;
+    padding-left: 145px;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 83%;
+    width: 82%;
+    margin: 0 115px;
+}
+
+.header-container #header-icon {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+}
+
+.header-container #header-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.main-header ul{
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+.selected-nav{
+    color: var(--green-1) !important;
+    color: #0bec12 !important;;
+}
+.main-header ul li {
+    position: relative;
+}
+
+.main-header ul li:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+}
+
+.section-portfolio {
+    width: min(1120px, 100%);
+    margin-top: 6.8rem;
+    margin: 7rem auto;
+    padding-top: 0;
+    color: white;
+    min-height: 100vh;
+}
+.header-portfolio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 1px;
+    font-size: 20px;
+    margin-bottom: 37px;
+}
+
+.header-portfolio #center {
+    margin-left: 62px;
+}
+.header-portfolio #right:hover {
+    cursor: pointer;
+}
+
+.div-portfolio {
+    width: 100%;
+    background-color: var(--bg-gray);
+    border-radius: 10px;
+    padding: var(--gutter);
+    display: flex;
+    gap: var(--gutter);
+    margin-bottom: var(--gutter);
+    cursor: pointer;
+    position: relative;
+}
+
+.project-pic{
+    width: 150px;
+    height: 110px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-pic img {
+    width: 116%;
+    object-fit: contain;
+    transition: 0.3s;
+    padding: 1rem 2rem;
+}
+
+.project-more{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: var(--gutter);
+    top: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.project-more > div {
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-5);
+    transition: 0.3s;
+}
+.project-more > div:nth-child(1) {
+    margin-right: auto;
+}
+.project-more > div:nth-child(3) {
+    margin-left: auto;
+}
+.project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.project-content--name {
+    font-size: 21;
+    font-weight: 900;
+}
+.project-content--introduction {
+    font-size: 16;
+    color: var(--subtext-gray);
+    line-height: 2rem;
+    word-break: keep-all;
+}
+.project-content--team {
+    display: flex
+;
+    gap: 10px;
+    margin-top: 15px;
+}
+.project-content--team li.leader {
+    background-color: var(--blue);
+    color: white;
+}
+.project-content--team li {
+    background-color: rgba(236, 236, 236, 0.466);
+    padding: 6px 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: black;
+}
+.div-portfolio:hover {
+    top: -2px;
+}
+.div-portfolio:hover .project-pic img {
+    transform: scale(1.1);
+}
+.div-portfolio:hover .more {
+  width: 50%;
+}
+
+footer {
+    min-height: 26px;
+    background-color: var(--bg-gray);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 자식 요소들을 양쪽 끝으로 배치 */
+    align-items: center;
+    min-height: 209px;
+    background-color: #333333;
+    padding: 0 38px; /* 양쪽 여백 추가 */
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.footer-mail{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.emoji {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+}
+
+.emoji img {
+    transform: translate(12%, -16%);
+    width: 80%;
+    height: 146%;
+}
+.footer-nav{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.footer-top .footer-nav li {
+    padding: 0 1.3rem;
+    position: relative;
+}
+
+.footer-top .footer-nav li:not(:last-child) {
+    border-right: 1px solid var(--line-gray);
+}
+
+.footer-buttom{
+    opacity: 0.8;
+    font-size: 13px;
+    text-align: center;
+    padding: var(--gutter);
+}
+#hamburger-icon{
+    display: none;
+}
+@media screen and (max-width: 1010px) {
+    .header-container{
+        margin: 0 -20;
+    }
+    #hamburger-icon {
+        display: flex;
+        width: 30px;
+        flex-direction: column;
+    }
+    #hamburger-icon:hover {
+        cursor: pointer;
+    }
+    #hamburger-icon > div{
+        height: 3px;
+        background-color: var(--white);
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+      #hamburger-icon > div:nth-of-type(1){
+        width: 50%;
+      }
+      #hamburger-icon > div:nth-of-type(2){
+        width: 100%;
+      }
+      #hamburger-icon > div:nth-of-type(3){
+        width: 75%;
+      }
+      .main-header{
+        height: 7rem;
+      }
+      .main-header .header-container ul {
+        display: none;
+      }
+      .header-container{
+        width: 117%;
+      }
+}
+@media screen and (max-width: 650px){
+    .div-portfolio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: var(--offset);
+    }
+        .project-content--name{
+        margin-bottom: 10px;
+    }
+        .project-pic {
+        width: min(75%, 250px);
+        height: 160px;
+    }
+        .project-content--team {
+        justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 1080px) {
+    .footer-container {
+        flex-direction: column;
+        align-content: center;
+        padding-top: 20px;
+    }
+    .footer-buttom{
+        display: none;
+    }
+
+}
+@media screen and (min-width: 1600px) {
+    .header-container{
+        width: 80%;
+    }
+}

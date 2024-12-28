@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        /* body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .responsive-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+        .responsive-item {
+            flex: 1 1 calc(33.333% - 10px);
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            .responsive-item {
+                flex: 1 1 calc(50% - 10px);
+            }
+        }
+        @media (max-width: 480px) {
+            .responsive-item {
+                flex: 1 1 100%;
+            }
+        } */
+
+        .responsive-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .responsive-item {
+            color: black;
+            background-color: aqua;
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .responsive-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .responsive-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="responsive-container">
+        <div class="responsive-item">1</div>
+        <div class="responsive-item">2</div>
+        <div class="responsive-item">3</div>
+        <div class="responsive-item">4</div>
+        <div class="responsive-item">5</div>
+        <div class="responsive-item">6</div>
+    </div>
+</body>
+</html>

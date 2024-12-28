@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .responsive-text {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            color: black;
+            font-size: 20px;
+        }
+        /* 2단 */
+        @media (max-width: 768px) {
+            .responsive-text {
+                font-size: 16px;
+            }
+        }
+        /* 1단 */
+        @media (max-width: 480px) {
+            .responsive-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="responsive-text">반응형 텍스트를 만들어 봅시다</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.flex-container{
+    display: flex;
+    justify-content: space-around; /* 수평방향 간격 설정 */
+    align-items: center; /* 수직방향정렬 */
+    flex-wrap: wrap;
+    background-color: beige;
+    padding: 20px;
+}
+
+.flex-item{
+    flex: 1 1 calc(33.33% - 60px); /*flex-glow(확장될 수 있으묜 확장)flex-shrink(얼마나 줄어들 수 있는지, 0일 때는 작아지지x) flex-basis*/
+    background-color: orange;
+    color:brown;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+@media(max-width: 768px){/*태블릿*/
+    .flex-item {
+        flex: 1 1 calc(50% -60px);
+    }
+
+}
+
+@media(max-width: 480){ /*모바일*/
+    .flex-item{
+        flex: 1 1 calc(100%);
+    }
+
+}

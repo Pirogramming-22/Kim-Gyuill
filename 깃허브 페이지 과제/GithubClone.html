@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.svg">
+    <title>GitHub · Build and ship software on a single, collaborative platform · GitHub</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="wrap-center">
+            <div id="header">
+                <button id="header-logo">
+                    <!-- ::before -->
+                    <img src="favicon.png" alt="깃허브 로고">
+                    <span class="blind">Logo</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-why">
+                    <!-- ::before -->
+                    <a href="#">Why GitHub?</a>
+                    <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                        <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <!-- ::after -->
+                </button>
+                <button id="header-team">
+                    <!-- ::before -->
+                    <a href="#">Team</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-enterprice">
+                    <!-- ::before -->
+                    <a href="#">Enterprice</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-explore">
+                    <!-- ::before -->
+                    <a href="#">Explore</a>
+                    <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                        <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <!-- ::after -->
+                </button>
+                <button id="header-marketplace">
+                    <!-- ::before -->
+                    <a href="#">Marketplace</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-pricing">
+                    <!-- ::before -->
+                    <a href="#">Pricing</a>
+                    <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                        <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <!-- ::after -->
+                </button>
+                <form action="">
+                    <input id="search-input" type="text" placeholder="Search Github" />
+                    <div id="search-right">
+                        <button href="#" id="search-keyboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#5E6062" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
+                            <span class="blind">입력도구</span>
+                        </button>
+                    </div>
+                </form>
+                <button id="header-signin">
+                    <!-- ::before -->
+                    <a href="#">Sign in</a>
+                    <!-- ::after -->
+                </button>
+                <button id="header-signup">
+                    <!-- ::before -->
+                    <a href="#">Sign up</a>
+                    <!-- ::after -->
+                </button>
+            </div>
+            <div id="main">
+                <div id="main-left">
+                    <div id="text1">
+                    <h1>Built for <br> developers</h1>
+                    </div>
+                    <div id="text2">
+                        <p>GitHub is a development platform inspired by the<br>way you work.From <strong><u>open source</u></strong> to <strong><u>business</u></strong>, you<br>can host and review code, manage projects, and<br>build software alongside 50 million developers.</p>
+                    </div>
+                </div>
+                <div id="main-right">
+                    <div id="signup-section">
+                        <label for="username" id="name">Username</label>
+                        <input type="name" id="username">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                        <p id="login-sentence">Make sure it's at least 15 characters OR at least 8 characters including a number and lowercase letter. <a href="#"">Learn more</a>.</p>
+                        <button id="loginbutton" type="button">Sign up for GitHub</button>
+                        <p id="last-sentence">By clicking "Sign up for GitHub", you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Statement</a>. We'll occasionally send you account related emails.</p>    
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <img src="footer.webp">
+                <div></div>
+                <div class="div2"></div>
+            </footer>
+            
+        </div>
+    </div>
+    <script>
+        const inputs = document.querySelectorAll('#signup-section input');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value.trim() !== '') {
+                    input.classList.add('has-value'); /* 값이 있으면 클래스 추가 */
+                } else {
+                    input.classList.remove('has-value'); /* 값이 없으면 클래스 제거 */
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+:root{
+    --color-workflow-card-bg: var(--bgColor-default);
+    --color-workflow-card-header-shadow: rgba(0, 0, 0, 0);
+    --color-bg-discussions-row-emoji-box: rgba(209, 213, 218, 0.5);
+    --color-notifications-row-read-bg: var(--bgColor-muted);
+    --color-notifications-row-bg: var(--bgColor-white);
+    --color-calendar-halloween-graph-day-L1-bg: #ffee4a;
+    --color-calendar-halloween-graph-day-L2-bg: #ffc501;
+    --color-calendar-halloween-graph-day-L3-bg: #fe9600;
+    --color-calendar-halloween-graph-day-L4-bg: #03001c;
+    --color-calendar-winter-graph-day-L1-bg: #B6E3FF;
+    --color-calendar-winter-graph-day-L2-bg: #54AEFF;
+    --color-calendar-winter-graph-day-L3-bg: #0969DA;
+    --color-calendar-winter-graph-day-L4-bg: #0A3069;
+    --color-calendar-graph-day-bg: #ebedf0;
+    --color-calendar-graph-day-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L1-bg: #9be9a8;
+    --color-calendar-graph-day-L2-bg: #40c463;
+    --color-calendar-graph-day-L3-bg: #30a14e;
+    --color-calendar-graph-day-L4-bg: #216e39;
+    --color-calendar-graph-day-L1-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L2-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L3-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L4-border: rgba(27, 31, 35, 0.06);
+    --color-user-mention-fg: var(--fgColor-default);
+    --color-mktg-btn-shadow-outline: rgba(0, 0, 0, 0.15) 0 0 0 1px inset;
+    --color-marketing-icon-primary: #218bff;
+    --color-marketing-icon-secondary: #54aeff;
+    --color-project-header-bg: #24292f;
+    --color-project-sidebar-bg: var(--bgColor-white);
+    --color-project-gradient-in: var(--bgColor-white);
+    --color-project-gradient-out: rgba(255, 255, 255, 0);
+    --color-diff-blob-selected-line-highlight-mix-blend-mode: multiply;
+    --color-text-white: var(--fgColor-white);
+}
+html, body {
+    font-size: 10.5px;
+    line-height: 10.5px;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.4px;
+    background-color: var(--color-project-header-bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+}
+header {
+    background-color: var(--color-project-header-bg);
+}
+#wrap {
+    text-align: center;
+}
+
+#wrap-center {
+    width: 1280px;
+    background-color: var(--color-project-header-bg);
+    display: inline-block;
+    padding: 10px;
+    padding-top: 132px;
+    padding-left: 108px;
+    
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 41px;
+    gap: 6px;
+    position: relative; 
+    padding-left: 10px;
+}
+
+
+#header svg{
+    fill: white;
+}
+
+#header button {
+    background: none;
+    border: none;
+    padding: 10px 5px; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    text-align: left; 
+    color: white;
+}
+
+#header button span {
+    margin-right: 5px; 
+}
+
+#header-logo{
+    left: -17;
+}
+#header-logo > img{
+    height: 32px;
+    width: 32px;
+    filter: invert(1); /* 색상 반전 */
+    position: relative;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: 512px 512px;
+    background-position: 0px 0px;
+}
+#header-why {
+    width: 111px;
+    height: 40px;
+    margin-left: 13px;
+    margin-top: 2px;
+}
+#header-signin, #header-signup {
+    width: 56px;
+    margin-left: 9px;
+    margin-top: 2px;
+    margin-right: -4px;
+}
+#header-signup {
+    width: 57px;
+    border: 1px solid white !important;
+    border-radius: 6px;
+    height: 34px;
+}
+#header form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-project-header-bg);
+    filter: brightness(1.9);
+    border-radius: 7px;
+    height: 34px;
+    margin-left: 250px;
+    width: 221px;
+}
+
+#header input {
+    position: relative;
+    border: none;
+    outline: none;
+    background-color: var(--color-project-header-bg);
+    border-radius: 7px;
+    width: 200px;
+    padding: 10px;
+    color: white;
+}
+
+#search-input:focus::placeholder {
+    color: var(--color-project-header-bg);
+}
+#header a {
+    color: white; 
+    text-decoration: none; 
+}
+
+#header a:hover {
+    text-decoration: underline; 
+    color: #f0f0f0;
+}
+
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+#main{
+    display: flex;
+}
+#text1{
+    width: 500px;
+    height: 165px;
+    margin-top: 101px;
+    margin-left: 142px;
+}
+#text1 > h1{
+    position: relative;
+    text-align: left;
+    font-size: 58px;
+    letter-spacing: 1px;
+    line-height: 1.0;
+    color:white;
+        }
+#text2{
+    width: 500px;
+    height: 165px;
+    margin-top: -47px;
+    margin-left: 139px;
+}
+#text2 > p{
+    position: relative;
+    text-align: left;
+    font-size: 19px;
+    letter-spacing: 0px;
+    line-height: 1.4;
+    color:rgb(158, 158, 158);
+}
+#text2 > p > strong{
+    color:white;
+}
+#text2 > p > strong u{
+    text-decoration: none;
+    box-shadow: 0 0.7px 0 rgb(69, 69, 69);; 
+}
+#main-signup{
+    width: 393px;
+    height: 456px;
+    margin-top: 7px;
+    margin-left: 8px;
+    border-radius: 5px;
+    background-color: white;
+}
+#main-right {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: flex-start; 
+}
+    
+#signup-section {
+    width: 54%;
+    height: 408px;
+    background-color: white;
+    padding: 25px 25px;
+    border-radius: 5px;
+    margin-right: 301px;
+    margin-left: 9px;
+    display: flex;
+    margin-top: 6px;
+    align-self: flex-start;
+    flex-direction: column;
+}
+
+#signup-section label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    text-align: left;
+    color: #656565;
+}
+#name{
+    margin-top: 0px !important;
+}
+
+#signup-section input {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 41px;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+#signup-section input:focus {
+    background-color: #f0fbff;
+}
+
+#signup-section input.has-value {
+    border-color: #3c85c0;
+    background-color: #f0fbff;
+    color: #333;
+}
+
+#login-sentence {
+    margin-top: 16px;
+    font-size: 10px;
+    color: gray;
+    opacity: 0.8;
+    line-height: 1.4;
+    text-align: left;
+}
+
+#loginbutton {
+    margin-top: 10px;
+    background-color: #3cc05b;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#loginbutton:hover {
+    background-color: #259c3f;
+}
+
+#last-sentence {
+    margin-top: 26px;
+    margin-bottom: 0px;
+    font-size: 11px;
+    color: #586069;
+    line-height: 1.4;
+    text-align: left;
+    text-decoration: none;
+}
+#login-sentence > a, #last-sentence > a {
+    text-decoration: none;
+    color: blue;
+}
+#login-sentence > a:hover, #last-sentence > a:hover {
+    text-decoration: underline; 
+}
+footer {
+    position: relative;  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 100px;
+    height: 150px;
+}
+
+footer img {
+    position: absolute;
+    bottom: -46px;
+    right: 16px;
+    width: 425px;
+    height: 172px;
+    z-index: 1;
+}
+
+footer div {
+    background-color: #fff;
+    margin-right: -112px;
+    width: 119%;
+    height: 77%;
+    margin-bottom: -24px;
+}
+footer .div2 {
+    position: absolute;
+    background-color: var(--color-project-header-bg);
+    margin-bottom: -140px;
+    z-index: 2;
+}
