@@ -34,8 +34,7 @@ let is_Running = true;
 document.getElementById('attempts').innerText = attempts;
 
 // 숫자 입력 확인
-function checkNumbers() {
-
+function check_numbers() {
     if(!is_Running) return; //기회 다 쓰면 비활성화
 
     const number1 = document.getElementById('number1').value;
@@ -118,10 +117,11 @@ document.getElementById('number3').addEventListener('input', nextFocus);
 // 엔터 감지
 document.getElementById('number3').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        checkNumbers();
+        check_numbers();
     }
 });
 
 // 버튼 클릭 이벤트 리스너
 const submitButton = document.querySelector('.submit-button');
-submitButton.addEventListener('click', checkNumbers);
+submitButton.addEventListener('click', check_numbers);
+
