@@ -35,9 +35,12 @@ def printing_info() :
     for name, info in students.items():
         print(f"{name} {info['mid']} {info['final']} {info['grade']}")
 
-# ##############  menu 4
-# def Menu4(#매개변수가 필요한지 판단 후 코딩할 것):
-#     #학생 정보 삭제하는 코딩
+#  menu 4: 학생 정보 삭제
+def delete_student_info(name):
+    
+    #학생 정보 삭제하는 코딩
+    del students[name]
+    
 
 #학생 정보를 저장할 변수 초기화
 print("*Menu*******************************")
@@ -107,14 +110,28 @@ while True :
         printing_info();
 
     elif choice == "4" :
+        
         #예외사항 처리(저장된 학생 정보의 유무)
+        if not students:
+            print("No student data!")
+            continue
+        
         #예외사항이 아닌 경우, 삭제할 학생 이름 입력 받기
+        delete_student = input("Enter the name to delete: ")
+        
         #입력 받은 학생의 존재 유무 체크 후, 없으면 "Not exist name!" 출력
+        if delete_student not in students:
+            print("Not exist name!")
         #있으면(예를 들어 kim 이라 하면), 4번 함수 호출 후에 "kim student information is deleted." 출력
-
+        else:
+            delete_student_info(delete_student)
+        print(f"{delete_student} student information is deleted.")
+            
     elif choice == "5" :
         #프로그램 종료 메세지 출력
+        print("Exit Program!")
         #반복문 종료
+        exit
 
     else :
         print("Wrong number. Choose again.")
