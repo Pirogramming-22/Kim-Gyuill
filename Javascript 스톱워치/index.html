@@ -3,6 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 스톱워치</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./reset.css">
+    <script src="https://kit.fontawesome.com/20832c1291.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -27,12 +30,16 @@
         <!-- 기록 -->
         <div class="timer-record">
             <header class="timer-header">
-                <i id="check"></i>
+                <button>
+                    <i id="check"></i>
+                </button>
                 <span>구간 기록</span>
-                <i id="delete"></i>
+                <button>
+                    <i id="delete"></i>
+                </button>
             </header>
             <div class="record-container">
-                <div></div>
+                <div class="record"></div>
             </div>
         </div>
     </div>
