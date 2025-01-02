@@ -87,7 +87,7 @@ while True :
 
     # 학점 부여
     elif choice == "2" :
-        #예외사항 처리(저장된 학생 정보의 유무)
+        #예외 처리 - 저장된 학생 정보의 유무
         if not students:
             print("No student data!")
             continue
@@ -100,11 +100,12 @@ while True :
     # 학생 정보 출력
     elif choice == "3" :
         
-        #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
+        #예외 처리 - 저장된 학생 정보의 유무
         if not students:
             print("No student data!")
             continue
         
+        # 예외 처리 - 저장되어 있는 학생들의 학점이 모두 부여되어 있는지
         is_true = True
         for name, info in students.items():
             if info['grade'] is None:
@@ -118,7 +119,7 @@ while True :
 
     elif choice == "4" :
         
-        #예외사항 처리(저장된 학생 정보의 유무)
+        #예외 처리 - 저장된 학생 정보의 유무
         if not students:
             print("No student data!")
             continue
