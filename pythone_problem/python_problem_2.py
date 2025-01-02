@@ -5,16 +5,35 @@ students = {}
 
 # menu 1: 학생 정보 저장
 def insert_student_info(name, mid, final) :
-    students[name] = {'mid' : mid, 'final' : final}
+    students[name] = {'mid' : mid, 'final' : final, 'grade' : None}
     
 
-# ##############  menu 2
-# def Menu2(#매개변수가 필요한지 판단 후 코딩할 것) :
-#     #학점 부여 하는 코딩
-
-# ##############  menu 3
-# def Menu3(#매개변수가 필요한지 판단 후 코딩할 것) :
-#     #출력 코딩
+# menu 2: 학점 부여
+def grading() :
+    
+    # 학점이 부여돼있으면 스킵
+    for name, scores in students.items():
+        if scores['grade'] is not None:
+            continue
+        
+        avg = (scores['mid'] + scores['final']) / 2
+        
+        if avg >= 90:
+            scores['grade'] = 'A'
+        elif avg >= 80:
+            scores['grade'] = 'B'
+        elif avg >= 70:
+            scores['grade'] = 'C'
+        else:
+            scores['grade'] = 'D'
+                
+# menu 3: 학생 정보 출력
+def printing_info() :
+    #출력 코딩
+    print("Name Mid Final Grade")
+    print("-" * 30)
+    for name, info in students.items():
+        print(f"{name} {info['mid']} {info['final']} {info['grade']}")
 
 # ##############  menu 4
 # def Menu4(#매개변수가 필요한지 판단 후 코딩할 것):
@@ -30,6 +49,8 @@ print("5. Exit program")
 print("*************************************")
 while True :
     choice = input("Choose menu 1, 2, 3, 4, 5 : ")
+    
+    # 학생 정보 입력
     if choice == "1":
         try:
             #학생 정보 입력받기
@@ -37,32 +58,53 @@ while True :
             
             # 예외 처리 - 데이터 입력 갯수
             if len(student_info != 3):
-                print("잘못된 입력입니다. 입력 예시) kim 100 80")
+                print("Num of data is not 3!")
                 continue
                 
             # 예외처리 - 이름 중복
             name, mid_score, final_score = student_info
             if name in students:
-                print("이미 존재하는 이름입니다.")
+                print("Already exist name!")
                 continue
             
-            # 예외처리 점수가
+            # 예외처리 - 점수 범위
             if not mid_score.isdigit() or not final_score.isdigit():
-                print("점수는 양의 정수여야 합니다.")
+                print("Score is not positive integer!")
                 continue
-                
+            
+            # 1번 메뉴 호출
             insert_student_info(name, int(mid_score), int(final_score))
+            
+        # 그 외 예외처리
         except Exception as e:
             print(e)
 
+    # 학점 부여
     elif choice == "2" :
         #예외사항 처리(저장된 학생 정보의 유무)
+        if not students:
+            print("No student data!")
+            continue
         #예외사항이 아닌 경우 2번 함수 호출
+        else:
+            grading()
         #"Grading to all students." 출력
+        print("Grading to all students.")
 
+    # 학생 정보 출력
     elif choice == "3" :
         #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
+        if not students:
+            print("No student data!")
+            continue
+        
+        for name, info in students.items():
+            if info['grade'] is None:
+                print(f"There is a student who didn't get grade.")
+                continue
+            
         #예외사항이 아닌 경우 3번 함수 호출
+        printing_info();
 
     elif choice == "4" :
         #예외사항 처리(저장된 학생 정보의 유무)
