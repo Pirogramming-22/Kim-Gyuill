@@ -57,10 +57,10 @@ while True :
     if choice == "1":
         try:
             #학생 정보 입력받기
-            student_info = input("Enter name mid-score final-score : ").split()
+            student_info = list(input("Enter name mid-score final-score : ").split())
             
             # 예외 처리 - 데이터 입력 갯수
-            if len(student_info != 3):
+            if len(student_info) != 3:
                 print("Num of data is not 3!")
                 continue
                 
@@ -131,8 +131,12 @@ while True :
         #프로그램 종료 메세지 출력
         print("Exit Program!")
         #반복문 종료
-        exit
+        break
 
     else :
         print("Wrong number. Choose again.")
         continue
+
+    # 추가수정 출력 예쁘게
+    # 학점이 없어도 출력되는 오류
+    # 프로그램 종료
