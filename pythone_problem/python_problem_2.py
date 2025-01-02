@@ -30,11 +30,14 @@ def grading() :
 # menu 3: 학생 정보 출력
 def printing_info() :
     #출력 코딩
-    print("Name Mid Final Grade")
+    print()
+    print("-" * 30)
+    print("Name\tMid\tFinal\tGrade")
     print("-" * 30)
     for name, info in students.items():
-        print(f"{name} {info['mid']} {info['final']} {info['grade']}")
-
+        print(f"{name}\t{info['mid']}\t{info['final']}\t{info['grade']}")
+    print()
+    
 #  menu 4: 학생 정보 삭제
 def delete_student_info(name):
     
@@ -96,18 +99,22 @@ while True :
 
     # 학생 정보 출력
     elif choice == "3" :
+        
         #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
         if not students:
             print("No student data!")
             continue
         
+        is_true = True
         for name, info in students.items():
             if info['grade'] is None:
                 print(f"There is a student who didn't get grade.")
-                continue
+                is_true = False
+                break
             
         #예외사항이 아닌 경우 3번 함수 호출
-        printing_info();
+        if is_true:
+            printing_info();
 
     elif choice == "4" :
         
@@ -122,6 +129,7 @@ while True :
         #입력 받은 학생의 존재 유무 체크 후, 없으면 "Not exist name!" 출력
         if delete_student not in students:
             print("Not exist name!")
+            continue
         #있으면(예를 들어 kim 이라 하면), 4번 함수 호출 후에 "kim student information is deleted." 출력
         else:
             delete_student_info(delete_student)
@@ -137,6 +145,3 @@ while True :
         print("Wrong number. Choose again.")
         continue
 
-    # 추가수정 출력 예쁘게
-    # 학점이 없어도 출력되는 오류
-    # 프로그램 종료
