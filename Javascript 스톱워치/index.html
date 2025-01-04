@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 스톱워치</title>
+    <link rel="stylesheet" href="./reset.css">
+    <script src="https://kit.fontawesome.com/20832c1291.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- 타이틀 -->
+        <div class="timer-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+                <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584l.013-.012.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354-.012.012A6.97 6.97 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0"/>
+              </svg>
+            <span>피로그래밍 스톱워치</span>
+        </div>
+        
+        <!-- 타이머 화면 -->
+        <div class="timer-main">
+            <div class="timer-nums">
+                <span>00:00</span>
+            </div>
+            <div class="timer-buttons">
+                <button id="start">start</button>
+                <button id="stop">stop</button>
+                <button id="reset">reset</button>
+            </div>
+        </div>
+        
+        <!-- 기록 -->
+        <div class="timer-record">
+            <header class="timer-header">
+                <button id="check-button">
+                    <img src="./checkbox-blank.png" id="check"></img>
+                </button>
+                <span>구간 기록</span>
+                <button id="delete-button">
+                    <img src="./delete.png" alt="" id="delete">
+                </button>
+            </header>
+            <div id="record-list"></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
