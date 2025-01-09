@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Form</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'review.css' %}">
+</head>
+<body>
+<header class="list_header">
+    <div>
+        <a href="#" class="header_left">
+            <span>my<strong>Movie</strong>reviews</span>
+        </a>
+        <a href="#" class="header_right">
+            <span>Add a New review</span>
+        </a>
+    </div>
+</header>
+<hr>
+<div class="form-container">
+    <h2 class="form-title">Movie <strong>review</strong> 🍿</h2>
+    <form action="#" class="review-form">
+        <label for="title">제목:</label>
+        <input type="text" id="title" name="title" />
+
+        <label for="year">개봉년도:</label>
+        <input type="text" id="year" name="year" />
+
+        <label for="genre">장르:</label>
+        <select id="genre" name="genre">
+            <option value="">----------</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+        </select>
+
+        <label for="rating">별점:</label>
+        <input type="text" id="rating" name="rating" />
+
+        <label for="runtime">러닝타임:</label>
+        <input type="text" id="runtime" name="runtime" />
+
+        <label for="review">리뷰:</label>
+        <textarea id="review" name="review"></textarea>
+
+        <label for="director">감독:</label>
+        <input type="text" id="director" name="director" />
+
+        <label for="actor">배우:</label>
+        <input type="text" id="actor" name="actor" />
+
+        <button type="submit" class="btn-save">Save</button>
+    </form>
+</div>
+</body>
+</html>

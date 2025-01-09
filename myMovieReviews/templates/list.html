@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'list.css' %}">
+
+</head>
+<body>
+<header class="list_header">
+    <div>
+        <a href="#" class="header_left">
+            <span>my<strong>Movie</strong>reviews</span>
+        </a>
+        <a href="#" class="header_right">
+            <span>Add a New review</span>
+        </a>
+    </div>
+</header>
+<hr>
+<a class="list-container" href="{% url 'comment:comment_create' %}">
+    <div class="movie-card">
+        <div class="movie-image"></div>
+        <div class="movie-info">
+            <h3 class="movie-title">영화 제목</h3>
+            <p>개봉년도: </p>
+            <p>장르: </p>
+            <p>별점: </p>
+        </div>
+    </div>
+</a>
+</body>
+</html>
