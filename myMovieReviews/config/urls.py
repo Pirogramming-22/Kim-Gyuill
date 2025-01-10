@@ -25,4 +25,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('review_comment.urls')),
+    path('', include('real_comment.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

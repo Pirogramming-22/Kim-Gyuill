@@ -65,5 +65,50 @@
 
         </div>
     </div>
+
+
+    <!-- 댓글 섹션 -->
+    <div class="comments-section">
+        <div class="comments-title">댓글</div>
+
+
+        {% for real_comment in real_comments %}
+            <div class="card comment-card">
+                <div class="card-body">
+                    <div>{{ real_comment.content }}</div>
+                    <div class="comment-date">{{ real_comment.real_created_at }}</div>
+                </div>
+                <form
+                    action="{% url 'real_comment:real_comment_delete' real_comment.pk %}"
+                    method="post"
+                    class="mb-0"
+                >
+                    {% csrf_token %}
+                    <button
+                        type="submit"
+                        class="btn btn-outline-danger btn-sm delete-btn"
+                    >
+                        삭제
+                    </button>
+                </form>
+            </div>
+        {% empty %}
+            <p>댓글이 없어요....</p>
+        {% endfor %}
+    </div>
+
+    <!-- 댓글 작성 폼 -->
+    <form class="comment-form" action="{% url 'real_comment:real_comment_create' comment.pk %}" method="post">
+        {% csrf_token %}
+        <textarea
+                class="form-control"
+                rows="4"
+                name="content"
+                placeholder="댓글을 입력하세요"
+        ></textarea>
+        <button type="submit" class="submit-btn">댓글 작성</button>
+    </form>
+
+
 </body>
 </html>

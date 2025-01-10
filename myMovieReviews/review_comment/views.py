@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import MovieReview
 from .forms import MovieReviewForm
+from real_comment.models import Comment
 
 
 def main(request):
@@ -36,9 +37,11 @@ def comment_create(request):
 def comment_detail(request, pk):
     comments = MovieReview.objects.get(id=pk)
     runtime_filter = f"{comments.runtime // 60}시간 {comments.runtime % 60}분"
+    real_comments = Comment.objects.filter(board=comments)
     context = {
         'comment': comments,
         'runtime_filter': runtime_filter,
+        'real_comments': real_comments,
     }
     return render(request, 'detail.html', context)
 
