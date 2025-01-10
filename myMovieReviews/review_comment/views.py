@@ -32,9 +32,23 @@ def comment_detail(request, pk):
     return render(request, 'detail.html', context)
 
 def comment_update(request, pk):
-
-
-    return render(request, 'review.html')
+    comment = MovieReview.objects.get(id=pk)
+    if request.method == "POST":
+        # 리뷰 업데이트
+        comment.title = request.POST['title']
+        comment.released_year = request.POST['year']
+        comment.genre = request.POST['genre']
+        comment.rating = request.POST['rating']
+        comment.runtime = request.POST['runtime']
+        comment.review = request.POST['review']
+        comment.director = request.POST['director']
+        comment.actor = request.POST['actor']
+        comment.save()
+        return redirect(reverse('comment:comment_detail', args=[comment.pk]))
+    context = {
+        'comment': comment,
+    }
+    return render(request, 'review.html', context)
 
 def comment_delete(request, pk):
     if request.method == "POST":

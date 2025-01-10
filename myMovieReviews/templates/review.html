@@ -25,33 +25,33 @@
     <form action="{% if comment %}{% url 'comment:comment_update' comment.pk %}{% else %}{% url 'comment:comment_create' %}{% endif %}" method="post">
     {% csrf_token %}
         <label for="title">제목:</label>
-        <input type="text" id="title" name="title" />
+        <input type="text" id="title" name="title" value="{{ comment.title }}" />
 
         <label for="year">개봉년도:</label>
-        <input type="text" id="year" name="year" />
+        <input type="text" id="year" name="year" value="{{ comment.released_year }}" />
 
         <label for="genre">장르:</label>
         <select id="genre" name="genre">
             <option value="">----------</option>
-            <option value="Action">Action</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Drama">Drama</option>
+            <option value="Action" {% if comment.genre == "Action" %}selected{% endif %}>Action</option>
+            <option value="Comedy" {% if comment.genre == "Comedy" %}selected{% endif %}>Comedy</option>
+            <option value="Drama" {% if comment.genre == "Drama" %}selected{% endif %}>Drama</option>
         </select>
 
         <label for="rating">별점:</label>
-        <input type="text" id="rating" name="rating" />
+        <input type="text" id="rating" name="rating" value="{{ comment.rating }}" />
 
         <label for="runtime">러닝타임:</label>
-        <input type="text" id="runtime" name="runtime" />
+        <input type="text" id="runtime" name="runtime" value="{{ comment.runtime }}" />
 
         <label for="review">리뷰:</label>
-        <textarea id="review" name="review"></textarea>
+        <textarea id="review" name="review">{{ comment.review }}</textarea>
 
         <label for="director">감독:</label>
-        <input type="text" id="director" name="director" />
+        <input type="text" id="director" name="director" value="{{ comment.director }}" />
 
         <label for="actor">배우:</label>
-        <input type="text" id="actor" name="actor" />
+        <input type="text" id="actor" name="actor" value="{{ comment.actor }}" />
 
         <button type="submit" class="btn-save">Save</button>
 </form>
