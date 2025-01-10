@@ -40,8 +40,12 @@
         </p>
     </div>
     <div class="actions">
-        <a href="{% url 'comment:comment_update' comment.id %}" class="btn edit">수정</a>
-        <a href="#" class="btn delete">삭제</a>
+        <a href="{% url 'comment:comment_update' comment.pk %}" class="btn edit">수정</a>
+        <form action="{% url 'comment:comment_delete' comment.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn delete">삭제</button>
+        </form>
+
     </div>
 </div>
 </body>
