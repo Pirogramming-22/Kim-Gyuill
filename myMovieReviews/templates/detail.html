@@ -21,49 +21,49 @@
     </script>
 </head>
 <body>
-<header class="list_header">
-    <div>
-        <a href="/" class="header_left">
-            <span>my<strong>Movie</strong>reviews</span>
-        </a>
-        <a href="{% url 'comment:comment_create' %}" class="header_right">
-            <span>Add a New review</span>
-        </a>
-    </div>
-</header>
-<hr>
-<div class="detail-container">
-    <h2 class="movie-title">{{ comment.title }}</h2>
-    <div class="movie-info">
-        <div class="movie-image">
-       {% if comment.image %}
-            <img src="{{ comment.image.url }}" alt="{{ comment.title }} 이미지">
-        {% else %}
-            <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
-        {% endif %}
+    <header class="list_header">
+        <div>
+            <a href="/" class="header_left">
+                <span>my<strong>Movie</strong>reviews</span>
+            </a>
+            <a href="{% url 'comment:comment_create' %}" class="header_right">
+                <span>Add a New review</span>
+            </a>
         </div>
-        <div class="movie-details">
-            <p>개봉년도: {{ comment.released_year }}</p>
-            <p>감독: {{ comment.director }}</p>
-            <p>주연: {{ comment.actor }}</p>
-            <p>장르: {{ comment.genre }}</p>
-            <p>별점: {{ comment.rating }}</p>
-            <p>러닝타임: {{ runtime_filter }}</p>
+    </header>
+    <hr>
+    <div class="detail-container">
+        <h2 class="movie-title">{{ comment.title }}</h2>
+        <div class="movie-info">
+            <div class="movie-image">
+           {% if comment.image %}
+                <img src="{{ comment.image.url }}" alt="{{ comment.title }} 이미지">
+            {% else %}
+                <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+            {% endif %}
+            </div>
+            <div class="movie-details">
+                <p>개봉년도: {{ comment.released_year }}</p>
+                <p>감독: {{ comment.director }}</p>
+                <p>주연: {{ comment.actor }}</p>
+                <p>장르: {{ comment.genre }}</p>
+                <p>별점: {{ comment.rating }}</p>
+                <p>러닝타임: {{ runtime_filter }}</p>
+            </div>
         </div>
-    </div>
-    <div class="movie-review">
-        <p>
-            {{ comment.review }}
-        </p>
-    </div>
-    <div class="actions">
-        <a href="{% url 'comment:comment_update' comment.pk %}" class="btn edit">수정</a>
-        <form action="{% url 'comment:comment_delete' comment.pk %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn delete">삭제</button>
-        </form>
+        <div class="movie-review">
+            <p>
+                {{ comment.review }}
+            </p>
+        </div>
+        <div class="actions">
+            <a href="{% url 'comment:comment_update' comment.pk %}" class="btn edit">수정</a>
+            <form action="{% url 'comment:comment_delete' comment.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn delete">삭제</button>
+            </form>
 
+        </div>
     </div>
-</div>
 </body>
 </html>

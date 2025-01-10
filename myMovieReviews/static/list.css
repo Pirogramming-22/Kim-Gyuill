@@ -203,6 +203,20 @@ img {
     color: #007BFF;
 }
 
+/* 평점에 따라 배경색 다르게 */
+
+.rating-high {
+    background-color: #d4edda;
+}
+
+.rating-medium {
+    background-color: #fff3cd;
+}
+
+.rating-low {
+    background-color: #f8d7da;
+}
+
 @media (max-width: 1500px) {
     .list-section {
         grid-template-columns: repeat(5, 1fr);

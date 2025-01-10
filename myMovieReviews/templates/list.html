@@ -34,9 +34,9 @@
     <div class="list-section">
         {% for comment in comments %}
         <a class="list-container" href="{% url 'comment:comment_detail' comment.pk %}">
-            <div class="movie-card">
+            <div class="movie-card {% if comment.rating >= 4 %}rating-high{% elif comment.rating >= 2 %}rating-medium{% else %}rating-low{% endif %}">
                 <div class="movie-image">
-                   {% if comment.image %}
+                    {% if comment.image %}
                         <img src="{{ comment.image.url }}" alt="{{ comment.title }} 이미지">
                     {% else %}
                         <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
