@@ -17,7 +17,7 @@ urlpatterns = [
     path('detail/<int:pk>', comment_detail, name='comment_detail'),
 
     # 업데이트
-    path('upadte/<int:pk>', comment_update, name='comment_update'),
+    path('update/<int:pk>', comment_update, name='comment_update'),
 
     # 삭제
     path('delete/<int:pk>', comment_delete, name='comment_delete'),

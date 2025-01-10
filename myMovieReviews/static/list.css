@@ -96,6 +96,72 @@ img {
     color: #333;
 }
 
+/*정렬 버튼*/
+.sort-button {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.dropdown-btn {
+    position: absolute;
+    width: 105px;
+    right: 56px;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 105px;
+    top: 20px;
+    right: 56px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+    list-style: none;
+}
+
+
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sort-button:hover .dropdown-menu {
+    display: block;
+}
+
+.sort-button:hover .dropdown-btn {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu a.active {
+    font-weight: bold;
+    color: #007BFF;
+}
 
 @media (max-width: 1500px) {
     .list-section {

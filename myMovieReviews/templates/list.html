@@ -21,6 +21,14 @@
         </div>
     </header>
     <hr>
+    <div class="sort-button">
+        <button class="dropdown-btn">정렬 옵션</button>
+        <ul class="dropdown-menu">
+            <li><a href="?sort=name" class="{% if current_sort == 'name' %}active{% endif %}">이름순</a></li>
+            <li><a href="?sort=rating" class="{% if current_sort == 'rating' %}active{% endif %}">별점순</a></li>
+            <li><a href="?sort=date" class="{% if current_sort == 'date' %}active{% endif %}">게시순</a></li>
+        </ul>
+    </div>
 
     <div class="list-section">
         {% for comment in comments %}
