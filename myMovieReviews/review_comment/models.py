@@ -11,6 +11,9 @@ class MovieReview(models.Model):
         ('Drama', 'Drama'),
         ('SF', 'SF'),
         ('Horror', 'Horror'),
+        ('Fantasy', 'Fantasy'),
+        ('Thriller', 'Thriller'),
+        ('Animation', 'Animation'),
     ])
     rating = models.DecimalField(max_digits=10, decimal_places=1)
     runtime = models.PositiveIntegerField(help_text="러닝타임을 분 단위로 입력하세요.")

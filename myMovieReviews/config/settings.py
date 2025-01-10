@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+try:
+    import PIL
+except ImportError:
+    raise ImportError(
+        "Pillow 라이브러리가 설치되어 있지 않습니다. "
+        "Pillow를 설치하려면 'pip install Pillow' 명령을 실행하세요."
+    )
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

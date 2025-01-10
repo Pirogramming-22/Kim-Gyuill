@@ -12,6 +12,13 @@
 
 ### 챌린지
 
+**전체**
+
+- 이미지 등록을 기능 추가했습니다.
+- 사용하려면 “pip install Pillow”를 통해 Pillow를 설치 하셔야 합니다.
+- 설치돼있지 않은 경우 setting에 예외처리를 해놔서 터미널에 설치해달라는 메시지가 발생합니다.
+
+
 **리뷰 작성 페이지**
 
 1. input 예외처리
@@ -28,4 +35,6 @@
 
 ## 이미지 사용
 
-https://www.flaticon.com/kr/free-icon/example_5632307
+영화 이미지 - https://www.themoviedb.org/`
+
+이미지가 없을 때 임시 이미지 - https://www.flaticon.com/kr/`
