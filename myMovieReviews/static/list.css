@@ -146,6 +146,20 @@ img {
     transition: background-color 0.2s ease;
 }
 
+.empty-div {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px;
+}
+.empty-div p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
 .dropdown-menu li a:hover {
     background-color: #f0f0f0;
 }

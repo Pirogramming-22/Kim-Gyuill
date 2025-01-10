@@ -2,7 +2,7 @@ from django.db import models
 
 
 class MovieReview(models.Model):
-
+    image = models.ImageField(upload_to='review_images/', blank=True, null=True, help_text="이미지를 업로드하세요.")
     title = models.CharField(max_length=200)
     released_year = models.PositiveIntegerField()
     genre = models.CharField(max_length=50, choices=[

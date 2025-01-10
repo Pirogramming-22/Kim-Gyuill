@@ -22,7 +22,7 @@ def main(request):
 
 def comment_create(request):
     if request.method == "POST":
-        form = MovieReviewForm(request.POST)
+        form = MovieReviewForm(request.POST, request.FILES)
 
         # 입력 예외처리
         if form.is_valid():
@@ -45,7 +45,7 @@ def comment_detail(request, pk):
 def comment_update(request, pk):
     comment = get_object_or_404(MovieReview, pk=pk)
     if request.method == "POST":
-        form = MovieReviewForm(request.POST, instance=comment)
+        form = MovieReviewForm(request.POST, request.FILES, instance=comment)
 
         # 입력 예외처리
         if form.is_valid():
