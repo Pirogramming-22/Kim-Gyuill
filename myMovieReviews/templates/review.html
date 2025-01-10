@@ -22,6 +22,7 @@
 <hr>
 <div class="form-container">
     <h2 class="form-title">Movie <strong>review</strong> 🍿</h2>
+    {# comment가 같이 들어오면 update comment가 없으면 create#}
     <form action="{% if comment %}{% url 'comment:comment_update' comment.pk %}{% else %}{% url 'comment:comment_create' %}{% endif %}" method="post">
     {% csrf_token %}
         <label for="title">제목:</label>
