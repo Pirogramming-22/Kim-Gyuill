@@ -22,21 +22,25 @@
     </header>
     <hr>
 
-    {% for comment in comments %}
-    <a class="list-container" href="{% url 'comment:comment_detail' comment.pk %}">
-        <div class="movie-card">
-            <div class="movie-image"></div>
-            <div class="movie-info">
-                <h3 class="movie-title">{{ comment.title }}</h3>
-                <p>개봉년도: {{ comment.released_year }}</p>
-                <p>장르: {{ comment.genre }}</p>
-                <p>별점: {{ comment.rating }}</p>
+    <div class="list-section">
+        {% for comment in comments %}
+        <a class="list-container" href="{% url 'comment:comment_detail' comment.pk %}">
+            <div class="movie-card">
+                <div class="movie-image">
+                    <img src="{% static 'ex_img.png' %}" alt="">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">{{ comment.title }}</h3>
+                    <p>개봉년도: {{ comment.released_year }}</p>
+                    <p>장르: {{ comment.genre }}</p>
+                    <p>별점: {{ comment.rating }}</p>
+                </div>
             </div>
-        </div>
-    </a>
-    {% empty %}
-        <p>첫번째 리뷰를 작성해주세요!</p>
+        </a>
+        {% empty %}
+            <p>첫번째 리뷰를 작성해주세요!</p>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 </body>
 </html>

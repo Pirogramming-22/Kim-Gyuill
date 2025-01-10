@@ -9,53 +9,73 @@
     <link rel="stylesheet" href="{% static 'review.css' %}">
 </head>
 <body>
-<header class="list_header">
-    <div>
-        <a href="/" class="header_left">
-            <span>my<strong>Movie</strong>reviews</span>
-        </a>
-        <a href="#" class="header_right">
-            <span>Add a New review</span>
-        </a>
+    <header class="list_header">
+        <div>
+            <a href="/" class="header_left">
+                <span>my<strong>Movie</strong>reviews</span>
+            </a>
+            <a href="#" class="header_right">
+                <span>Add a New review</span>
+            </a>
+        </div>
+    </header>
+    <hr>
+    <div class="form-container">
+        <h2 class="form-title">Movie <strong>review</strong> 🍿</h2>
+        {# comment가 같이 들어오면 update comment가 없으면 create#}
+        <form action="{% if comment %}{% url 'comment:comment_update' comment.pk %}{% else %}{% url 'comment:comment_create' %}{% endif %}" method="post">
+        {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form_label">
+                <label for="title">제목:</label>
+            </div>
+            {{ form.title.errors }}
+            {{ form.title }}
+
+            <div class="form_label">
+                <label for="year">개봉년도:</label>
+            </div>
+            {{ form.released_year.errors }}
+            {{ form.released_year }}
+
+            <div class="form_label">
+                <label for="genre">장르:</label>
+            </div>
+            {{ form.genre.errors }}
+            {{ form.genre }}
+
+            <div class="form_label">
+                <label for="rating">별점:</label>
+            </div>
+            {{ form.rating.errors }}
+            {{ form.rating }}
+
+            <div class="form_label">
+                <label for="runtime">러닝타임: 예시) 2시간 -> 120</label>
+            </div>
+            {{ form.runtime.errors }}
+            {{ form.runtime }}
+
+            <div class="form_label">
+                <label for="review">리뷰:</label>
+            </div>
+            {{ form.review.errors }}
+            {{ form.review }}
+
+            <div class="form_label">
+                <label for="director">감독:</label>
+            </div>
+            {{ form.director.errors }}
+            {{ form.director }}
+
+            <div class="form_label">
+                <label for="actor">배우:</label>
+            </div>
+            {{ form.actor.errors }}
+            {{ form.actor }}
+
+            <button type="submit" class="btn-save">Save</button>
+        </form>
     </div>
-</header>
-<hr>
-<div class="form-container">
-    <h2 class="form-title">Movie <strong>review</strong> 🍿</h2>
-    {# comment가 같이 들어오면 update comment가 없으면 create#}
-    <form action="{% if comment %}{% url 'comment:comment_update' comment.pk %}{% else %}{% url 'comment:comment_create' %}{% endif %}" method="post">
-    {% csrf_token %}
-        <label for="title">제목:</label>
-        <input type="text" id="title" name="title" value="{{ comment.title }}" />
-
-        <label for="year">개봉년도:</label>
-        <input type="text" id="year" name="year" value="{{ comment.released_year }}" />
-
-        <label for="genre">장르:</label>
-        <select id="genre" name="genre">
-            <option value="">----------</option>
-            <option value="Action" {% if comment.genre == "Action" %}selected{% endif %}>Action</option>
-            <option value="Comedy" {% if comment.genre == "Comedy" %}selected{% endif %}>Comedy</option>
-            <option value="Drama" {% if comment.genre == "Drama" %}selected{% endif %}>Drama</option>
-        </select>
-
-        <label for="rating">별점:</label>
-        <input type="text" id="rating" name="rating" value="{{ comment.rating }}" />
-
-        <label for="runtime">러닝타임:</label>
-        <input type="text" id="runtime" name="runtime" value="{{ comment.runtime }}" />
-
-        <label for="review">리뷰:</label>
-        <textarea id="review" name="review">{{ comment.review }}</textarea>
-
-        <label for="director">감독:</label>
-        <input type="text" id="director" name="director" value="{{ comment.director }}" />
-
-        <label for="actor">배우:</label>
-        <input type="text" id="actor" name="actor" value="{{ comment.actor }}" />
-
-        <button type="submit" class="btn-save">Save</button>
-</form>
-</div>
 </body>
 </html>

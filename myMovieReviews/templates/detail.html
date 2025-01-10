@@ -7,7 +7,18 @@
     <title>Movie Details</title>
     <link rel="stylesheet" href="{% static 'reset.css' %}">
     <link rel="stylesheet" href="{% static 'detail.css' %}">
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 서버에서 전달된 오류 메시지 표시
+            {% if errors %}
+                let errorMessages = "";
+                {% for field, message in errors.items %}
+                    errorMessages += "{{ message }}\n";
+                {% endfor %}
+                alert(errorMessages); // 경고창으로 오류 메시지 표시
+            {% endif %}
+        });
+    </script>
 </head>
 <body>
 <header class="list_header">
@@ -24,14 +35,16 @@
 <div class="detail-container">
     <h2 class="movie-title">{{ comment.title }}</h2>
     <div class="movie-info">
-        <div class="movie-image"></div>
+        <div class="movie-image">
+            <img src="{% static 'ex_img.png' %}" alt="">
+        </div>
         <div class="movie-details">
             <p>개봉년도: {{ comment.released_year }}</p>
             <p>감독: {{ comment.director }}</p>
             <p>주연: {{ comment.actor }}</p>
             <p>장르: {{ comment.genre }}</p>
             <p>별점: {{ comment.rating }}</p>
-            <p>러닝타임: {{ comment.runtime }}</p>
+            <p>러닝타임: {{ runtime_filter }}</p>
         </div>
     </div>
     <div class="movie-review">
