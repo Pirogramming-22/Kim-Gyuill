@@ -15,13 +15,13 @@
         <a href="#" class="header_left">
             <span>my<strong>Movie</strong>reviews</span>
         </a>
-        <a href="#" class="header_right">
+        <a href="{% url 'comment:comment_create' %}" class="header_right">
             <span>Add a New review</span>
         </a>
     </div>
 </header>
 <hr>
-<a class="list-container" href="{% url 'comment:comment_create' %}">
+<a class="list-container" href="">
     <div class="movie-card">
         <div class="movie-image"></div>
         <div class="movie-info">

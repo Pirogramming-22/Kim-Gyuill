@@ -7,6 +7,12 @@ app_name = 'comment'
 
 urlpatterns = [
 
+    # 메인
+    path('', main, name='main'),
+
     # 글 쓰기
     path('create', comment_create, name='comment_create'),
+
+    # 디테일
+    path('detail/<int:pk>', comment_detail, name='comment_detail'),
 ]

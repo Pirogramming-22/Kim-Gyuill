@@ -69,7 +69,7 @@ label {
 input,
 select,
 textarea {
-    margin-bottom: 15px;
+    margin: 7px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -95,3 +95,4 @@ textarea {
 .btn-save:hover {
     background-color: #b71c8f;
 }
+

@@ -12,7 +12,7 @@ class MovieReview(models.Model):
         ('SF', 'SF'),
         ('Horror', 'Horror'),
     ])
-    rating = models.DecimalField(max_digits=3, decimal_places=1)
+    rating = models.DecimalField(max_digits=10, decimal_places=1)
     runtime = models.PositiveIntegerField(help_text="러닝타임을 분 단위로 입력하세요.")
     review = models.TextField()
     director = models.CharField(max_length=200)
