@@ -10,27 +10,33 @@
 
 </head>
 <body>
-<header class="list_header">
-    <div>
-        <a href="#" class="header_left">
-            <span>my<strong>Movie</strong>reviews</span>
-        </a>
-        <a href="{% url 'comment:comment_create' %}" class="header_right">
-            <span>Add a New review</span>
-        </a>
-    </div>
-</header>
-<hr>
-<a class="list-container" href="">
-    <div class="movie-card">
-        <div class="movie-image"></div>
-        <div class="movie-info">
-            <h3 class="movie-title">영화 제목</h3>
-            <p>개봉년도: </p>
-            <p>장르: </p>
-            <p>별점: </p>
+    <header class="list_header">
+        <div>
+            <a href="#" class="header_left">
+                <span>my<strong>Movie</strong>reviews</span>
+            </a>
+            <a href="{% url 'comment:comment_create' %}" class="header_right">
+                <span>Add a New review</span>
+            </a>
         </div>
-    </div>
-</a>
+    </header>
+    <hr>
+
+    {% for comment in comments %}
+    <a class="list-container" href="{% url 'comment:comment_detail' comment.pk %}">
+        <div class="movie-card">
+            <div class="movie-image"></div>
+            <div class="movie-info">
+                <h3 class="movie-title">{{ comment.title }}</h3>
+                <p>개봉년도: {{ comment.released_year }}</p>
+                <p>장르: {{ comment.genre }}</p>
+                <p>별점: {{ comment.rating }}</p>
+            </div>
+        </div>
+    </a>
+    {% empty %}
+        <p>첫번째 리뷰를 작성해주세요!</p>
+
+    {% endfor %}
 </body>
 </html>

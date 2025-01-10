@@ -1,16 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Details</title>
-    <link rel="stylesheet" href="./css/detail.css">
-    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+
 </head>
 <body>
 <header class="list_header">
     <div>
-        <a href="#" class="header_left">
+        <a href="/" class="header_left">
             <span>my<strong>Movie</strong>reviews</span>
         </a>
         <a href="#" class="header_right">
@@ -26,6 +28,7 @@
         <div class="movie-details">
             <p>개봉년도: {{ comment.released_year }}</p>
             <p>감독: {{ comment.director }}</p>
+            <p>주연: {{ comment.actor }}</p>
             <p>장르: {{ comment.genre }}</p>
             <p>별점: {{ comment.rating }}</p>
             <p>러닝타임: {{ comment.runtime }}</p>
@@ -37,7 +40,7 @@
         </p>
     </div>
     <div class="actions">
-        <a href="#" class="btn edit">수정</a>
+        <a href="{% url 'comment:comment_update' comment.id %}" class="btn edit">수정</a>
         <a href="#" class="btn delete">삭제</a>
     </div>
 </div>

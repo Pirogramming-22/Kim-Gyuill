@@ -15,4 +15,8 @@ urlpatterns = [
 
     # 디테일
     path('detail/<int:pk>', comment_detail, name='comment_detail'),
+
+    # 업데이트
+    path('upadte/<int:pk>', comment_update, name='comment_update'),
+
 ]

@@ -22,9 +22,9 @@
 <hr>
 <div class="form-container">
     <h2 class="form-title">Movie <strong>review</strong> 🍿</h2>
-<form action="{% url 'comment:comment_create' %}" method="post">
+    <form action="{% if comment %}{% url 'comment:comment_update' comment.id %}{% else %}{% url 'comment:comment_create' %}{% endif %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }} <!-- Django 폼 렌더링 -->
+    {{ form.as_p }}
     <button type="submit" class="btn-save">Save</button>
 </form>
 </div>
