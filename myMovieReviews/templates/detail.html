@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 서버에서 전달된 오류 메시지 표시
+            {% if errors %}
+                let errorMessages = "";
+                {% for field, message in errors.items %}
+                    errorMessages += "{{ message }}\n";
+                {% endfor %}
+                alert(errorMessages); // 경고창으로 오류 메시지 표시
+            {% endif %}
+        });
+    </script>
+</head>
+<body>
+    <header class="list_header">
+        <div>
+            <a href="/" class="header_left">
+                <span>my<strong>Movie</strong>reviews</span>
+            </a>
+            <a href="{% url 'comment:comment_create' %}" class="header_right">
+                <span>Add a New review</span>
+            </a>
+        </div>
+    </header>
+    <hr>
+    <div class="detail-container">
+        <h2 class="movie-title">{{ comment.title }}</h2>
+        <div class="movie-info">
+            <div class="movie-image">
+           {% if comment.image %}
+                <img src="{{ comment.image.url }}" alt="{{ comment.title }} 이미지">
+            {% else %}
+                <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+            {% endif %}
+            </div>
+            <div class="movie-details">
+                <p>개봉년도: {{ comment.released_year }}</p>
+                <p>감독: {{ comment.director }}</p>
+                <p>주연: {{ comment.actor }}</p>
+                <p>장르: {{ comment.genre }}</p>
+                <p>별점: {{ comment.rating }}</p>
+                <p>러닝타임: {{ runtime_filter }}</p>
+            </div>
+        </div>
+        <div class="movie-review">
+            <p>
+                {{ comment.review }}
+            </p>
+        </div>
+        <div class="actions">
+            <a href="{% url 'comment:comment_update' comment.pk %}" class="btn edit">수정</a>
+            <form action="{% url 'comment:comment_delete' comment.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn delete">삭제</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- 댓글 섹션 -->
+    <div class="comments-section">
+        <div class="comments-title">댓글</div>
+
+
+        {% for real_comment in real_comments %}
+            <div class="card comment-card">
+                <div class="card-body">
+                    <div>{{ real_comment.content }}</div>
+                    <div class="comment-date">{{ real_comment.real_created_at }}</div>
+                </div>
+                <form
+                    action="{% url 'real_comment:real_comment_delete' real_comment.pk %}"
+                    method="post"
+                    class="mb-0"
+                >
+                    {% csrf_token %}
+                    <button
+                        type="submit"
+                        class="btn btn-outline-danger btn-sm delete-btn"
+                    >
+                        삭제
+                    </button>
+                </form>
+            </div>
+        {% empty %}
+            <p>댓글이 없어요....</p>
+        {% endfor %}
+    </div>
+
+    <!-- 댓글 작성 폼 -->
+    <form class="comment-form" action="{% url 'real_comment:real_comment_create' comment.pk %}" method="post">
+        {% csrf_token %}
+        <textarea
+                class="form-control"
+                rows="4"
+                name="content"
+                placeholder="댓글을 입력하세요"
+        ></textarea>
+        <button type="submit" class="submit-btn">댓글 작성</button>
+    </form>
+
+
+</body>
+</html>

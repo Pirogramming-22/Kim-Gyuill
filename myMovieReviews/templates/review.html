@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Form</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'review.css' %}">
+</head>
+<body>
+    <header class="list_header">
+        <div>
+            <a href="/" class="header_left">
+                <span>my<strong>Movie</strong>reviews</span>
+            </a>
+            <a href="#" class="header_right">
+                <span>Add a New review</span>
+            </a>
+        </div>
+    </header>
+    <hr>
+    <div class="form-container">
+        <h2 class="form-title">Movie <strong>review</strong> 🍿</h2>
+        {# comment가 같이 들어오면 update comment가 없으면 create#}
+        <form action="{% if comment %}{% url 'comment:comment_update' comment.pk %}{% else %}{% url 'comment:comment_create' %}{% endif %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form_label">
+                <label for="image">이미지:</label>
+            </div>
+            {{ form.image.errors }}
+            {{ form.image }}
+
+            {{ form.non_field_errors }}
+            <div class="form_label">
+                <label for="title">제목:</label>
+            </div>
+            {{ form.title.errors }}
+            {{ form.title }}
+
+            <div class="form_label">
+                <label for="year">개봉년도:</label>
+            </div>
+            {{ form.released_year.errors }}
+            {{ form.released_year }}
+
+            <div class="form_label">
+                <label for="genre">장르:</label>
+            </div>
+            {{ form.genre.errors }}
+            {{ form.genre }}
+
+            <div class="form_label">
+                <label for="rating">별점:</label>
+            </div>
+            {{ form.rating.errors }}
+            {{ form.rating }}
+
+            <div class="form_label">
+                <label for="runtime">러닝타임: 예시) 2시간 -> 120</label>
+            </div>
+            {{ form.runtime.errors }}
+            {{ form.runtime }}
+
+            <div class="form_label">
+                <label for="review">리뷰:</label>
+            </div>
+            {{ form.review.errors }}
+            {{ form.review }}
+
+            <div class="form_label">
+                <label for="director">감독:</label>
+            </div>
+            {{ form.director.errors }}
+            {{ form.director }}
+
+            <div class="form_label">
+                <label for="actor">배우:</label>
+            </div>
+            {{ form.actor.errors }}
+            {{ form.actor }}
+
+            <button type="submit" class="btn-save">Save</button>
+        </form>
+    </div>
+</body>
+</html>

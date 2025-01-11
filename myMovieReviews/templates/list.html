@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'list.css' %}">
+
+</head>
+<body>
+    <header class="list_header">
+        <div>
+            <a href="#" class="header_left">
+                <span>my<strong>Movie</strong>reviews</span>
+            </a>
+            <a href="{% url 'comment:comment_create' %}" class="header_right">
+                <span>Add a New review</span>
+            </a>
+        </div>
+    </header>
+    <hr>
+    <div class="sort-button">
+        <button class="dropdown-btn">정렬 옵션</button>
+        <ul class="dropdown-menu">
+            <li><a href="?sort=name" class="{% if current_sort == 'name' %}active{% endif %}">이름순</a></li>
+            <li><a href="?sort=rating" class="{% if current_sort == 'rating' %}active{% endif %}">별점순</a></li>
+            <li><a href="?sort=date" class="{% if current_sort == 'date' %}active{% endif %}">게시순</a></li>
+        </ul>
+    </div>
+
+    <div class="list-section">
+        {% for comment in comments %}
+        <a class="list-container" href="{% url 'comment:comment_detail' comment.pk %}">
+            <div class="movie-card {% if comment.rating >= 4 %}rating-high{% elif comment.rating >= 2 %}rating-medium{% else %}rating-low{% endif %}">
+                <div class="movie-image">
+                    {% if comment.image %}
+                        <img src="{{ comment.image.url }}" alt="{{ comment.title }} 이미지">
+                    {% else %}
+                        <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+                    {% endif %}
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">{{ comment.title }}</h3>
+                    <p>개봉년도: {{ comment.released_year }}</p>
+                    <p>장르: {{ comment.genre }}</p>
+                    <p>별점: {{ comment.rating }}</p>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+            <div class="empty-div">
+                <p>첫번째 리뷰를 작성해주세요!</p>
+            </div>
+
+        {% endfor %}
+    </div>
+</body>
+</html>

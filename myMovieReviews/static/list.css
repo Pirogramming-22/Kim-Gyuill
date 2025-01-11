@@ -1,0 +1,248 @@
+body {
+    background: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list_header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.list_header div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_left span {
+    font-size: 24px;
+}
+
+.header_left span strong {
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+.header_right {
+    width: 160px;
+    height: 40px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header_right span {
+    color: black;
+}
+
+.header_right:hover {
+        background-color: gray;
+}
+.header_right:hover span {
+    color: white;
+}
+
+.list-section {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.list-container {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-card {
+    width: 220px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    padding: 10px;
+    height: 330px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-image {
+    width: calc(100% - 20px);
+    height: 180px;
+    background: #ddd;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #aaa;
+    border-radius: 4px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.movie-info {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #333;
+}
+
+/*정렬 버튼*/
+.sort-button {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.dropdown-btn {
+    position: absolute;
+    width: 105px;
+    right: 72px;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 105px;
+    top: 20px;
+    right: 72px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+    list-style: none;
+}
+
+
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.empty-div {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px;
+}
+.empty-div p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sort-button:hover .dropdown-menu {
+    display: block;
+}
+
+.sort-button:hover .dropdown-btn {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu a.active {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* 평점에 따라 배경색 다르게 */
+
+.rating-high {
+    background-color: #d4edda;
+}
+
+.rating-medium {
+    background-color: #fff3cd;
+}
+
+.rating-low {
+    background-color: #f8d7da;
+}
+
+@media (max-width: 1500px) {
+    .list-section {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1280px) {
+    .list-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1020px) {
+    .list-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 753px) {
+    .list-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .list-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
