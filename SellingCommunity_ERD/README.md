@@ -6,6 +6,7 @@ SellingCommunity_ERD 설계
 
 ![ERD](./image.png)
 
+요구사항, 추가 요구사항 모두 반영했습니다.
 ---
 
 ### 요구사항
