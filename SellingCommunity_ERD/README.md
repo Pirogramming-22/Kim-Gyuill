@@ -4,6 +4,8 @@ SellingCommunity_ERD 설계
 
 링크: https://www.erdcloud.com/d/f6SfW9H8HjkXxZBnN
 
+![ERD](./image.png)
+
 ---
 
 ### 요구사항
