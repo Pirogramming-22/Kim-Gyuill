@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}아이디어 관리{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'list.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="idea-list-header">
+    <h1>Idea List</h1>
+    <p>다양한 아이디어를 한 눈에 관리하고 기록하세요!</p>
+</section>
+
+<div class="sort-button">
+    <button class="dropdown-btn">정렬 기준</button>
+    <ul class="dropdown-menu">
+        <li><a href="?sort=popularity">관심도순</a></li>
+        <li><a href="?sort=newest">최신순</a></li>
+        <li><a href="?sort=oldest">오래된순</a></li>
+        <li><a href="?sort=name_asc">이름순</a></li>
+        <li><a href="?sort=name_desc">이름역순</a></li>
+    </ul>
+</div>
+
+<div class="idea-list">
+    <!-- 아이디어 카드 1 -->
+    <div class="idea-card">
+        <div class="idea-image">
+            <img src="" alt="JavaScript 로고">
+        </div>
+        <div class="idea-content">
+            <h2>첫 번째 게시물</h2>
+            <p>예상 개발 툴: Django</p>
+            <p>아이디어 관심도: +4</p>
+        </div>
+    </div>
+
+    <!-- 아이디어 카드 2 -->
+    <div class="idea-card">
+        <div class="idea-image">
+            <img src="" alt="HTML CSS 로고">
+        </div>
+        <div class="idea-content">
+            <h2>두 번째 게시물</h2>
+            <p>예상 개발 툴: Django</p>
+            <p>아이디어 관심도: +5</p>
+        </div>
+    </div>
+
+    <!-- 아이디어 카드 3 -->
+    <div class="idea-card">
+        <div class="idea-image">
+            <img src="" alt="React 로고">
+        </div>
+        <div class="idea-content">
+            <h2>세 번째 게시물</h2>
+            <p>예상 개발 툴: React</p>
+            <p>아이디어 관심도: +2</p>
+        </div>
+    </div>
+
+    <!-- 아이디어 카드 4 -->
+    <div class="idea-card">
+        <div class="idea-image">
+            <img src="" alt="Python 로고">
+        </div>
+        <div class="idea-content">
+            <h2>네 번째 게시물</h2>
+            <p>예상 개발 툴: React</p>
+            <p>아이디어 관심도: +1</p>
+        </div>
+    </div>
+</div>
+
+<!-- 페이지네이션 -->
+<div class="pagination">
+    <a href="?page=1">1</a>
+    <a href="?page=2">2</a>
+    <a href="?page=3">3</a>
+</div>
+{% endblock %}
