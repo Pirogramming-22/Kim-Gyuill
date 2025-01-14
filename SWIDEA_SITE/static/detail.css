@@ -1,0 +1,126 @@
+/* 배경 스타일 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    color: #fff;
+}
+
+/* 컨테이너 */
+.detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 헤더 */
+.idea-detail-header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #76c7c0;
+    margin-bottom: 10px;
+}
+
+.idea-detail-header p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* 내용 */
+.idea-detail-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.idea-image img {
+    max-width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.idea-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.idea-info h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.idea-info span {
+    color: gold;
+    font-size: 1.2em;
+}
+
+.idea-info p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.idea-info strong {
+    color: #fff;
+}
+
+/* 버튼 */
+.idea-actions {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.idea-actions .btn-delete,
+.idea-actions .btn-list,
+.idea-actions .btn-edit {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-delete {
+    background: #e74c3c;
+
+    width: 72px;
+}
+
+
+.btn-delete button{
+    color: #fff;
+    font-size: 1em;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+.btn-list {
+    background: #3498db;
+    color: #fff;
+}
+
+.btn-list:hover {
+    background: #2980b9;
+}
+
+.btn-edit {
+    background: #2ecc71;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: #27ae60;
+}

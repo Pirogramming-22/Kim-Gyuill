@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}아이디어 상세보기{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <section class="idea-detail-header">
+        <h1>Idea Detail</h1>
+        <p>아이디어 세부내용 페이지입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</p>
+    </section>
+
+    <div class="idea-detail-content">
+        <div class="idea-image">
+            {% if idea.image %}
+                <img src="{{ idea.image.url }}" alt="{{ idea.title }} 이미지">
+            {% else %}
+                <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+            {% endif %}
+        </div>
+        <div class="idea-info">
+            <h2>{{ idea.title }} <span>⭐</span></h2>
+            <p>1) 아이디어 관심도: <strong>{{ idea.interest }}</strong></p>
+            <p>2) 예상 개발 툴: <strong>{{ idea.devtool }}</strong></p>
+            <p>3) 아이디어 설명: <strong>{{ idea.content }}</strong></p>
+        </div>
+    </div>
+
+    <div class="idea-actions">
+        <form action="{% url 'ideas:idea_delete' idea.pk %}" method="post" class="btn-delete">
+        {% csrf_token %}
+            <button type="submit">삭제</button>
+        </form> 
+        <a class="btn-list"  href = "{% url 'ideas:main' %}" >목록</a>
+        <a class="btn-edit" href="{% url 'ideas:idea_update' idea.pk %}">수정</a>
+    </div>
+</div>
+{% endblock %}

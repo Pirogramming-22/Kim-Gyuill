@@ -16,7 +16,7 @@
         <p>아이디어 등록 페이지입니다. 당신의 아이디어를 잊지 말고 기록하세요!</p>
     </section>
 
-    <form action="{% url 'ideas:idea_create' %}" method="post" enctype="multipart/form-data">
+    <form action="{% if idea %}{% url 'ideas:idea_update' idea.pk %}{% else %}{% url 'ideas:idea_create' %}{% endif %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="form_label">
             <label for="title">아이디어명:</label>

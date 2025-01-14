@@ -26,54 +26,27 @@
 </div>
 
 <div class="idea-list">
-    <!-- 아이디어 카드 1 -->
-    <div class="idea-card">
+    {% for idea in ideas %}
+    <a href="{% url 'ideas:idea_detail' idea.pk %}" class="idea-card">
         <div class="idea-image">
-            <img src="" alt="JavaScript 로고">
+            {% if idea.image %}
+                <img src="{{ idea.image.url }}" alt="{{ idea.title }} 이미지">
+            {% else %}
+                <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+            {% endif %}
         </div>
         <div class="idea-content">
-            <h2>첫 번째 게시물</h2>
-            <p>예상 개발 툴: Django</p>
-            <p>아이디어 관심도: +4</p>
+            <h2>{{ idea.title }}</h2>
+            <p>예상 개발 툴: {{ idea.devtool }}</p>
+            <p>아이디어 관심도: {{ idea.interest }}</p>
         </div>
+    </a>
+    {% empty %}
+    <div class="empty-div">
+        <p>첫번째 리뷰를 작성해주세요!</p>
     </div>
+    {% endfor %}
 
-    <!-- 아이디어 카드 2 -->
-    <div class="idea-card">
-        <div class="idea-image">
-            <img src="" alt="HTML CSS 로고">
-        </div>
-        <div class="idea-content">
-            <h2>두 번째 게시물</h2>
-            <p>예상 개발 툴: Django</p>
-            <p>아이디어 관심도: +5</p>
-        </div>
-    </div>
-
-    <!-- 아이디어 카드 3 -->
-    <div class="idea-card">
-        <div class="idea-image">
-            <img src="" alt="React 로고">
-        </div>
-        <div class="idea-content">
-            <h2>세 번째 게시물</h2>
-            <p>예상 개발 툴: React</p>
-            <p>아이디어 관심도: +2</p>
-        </div>
-    </div>
-
-    <!-- 아이디어 카드 4 -->
-    <div class="idea-card">
-        <div class="idea-image">
-            <img src="" alt="Python 로고">
-        </div>
-        <div class="idea-content">
-            <h2>네 번째 게시물</h2>
-            <p>예상 개발 툴: React</p>
-            <p>아이디어 관심도: +1</p>
-        </div>
-    </div>
-</div>
 
 <!-- 페이지네이션 -->
 <div class="pagination">
