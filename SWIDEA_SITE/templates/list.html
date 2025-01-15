@@ -26,7 +26,7 @@
 </div>
 
 <div class="idea-list">
-    {% for idea in ideas %}
+    {% for idea in page_obj %}
     <a href="{% url 'ideas:idea_detail' idea.pk %}" class="idea-card">
         <div class="idea-image">
             {% if idea.image %}
@@ -46,12 +46,23 @@
         <p>첫번째 리뷰를 작성해주세요!</p>
     </div>
     {% endfor %}
-
-
+</div>
 <!-- 페이지네이션 -->
 <div class="pagination">
-    <a href="?page=1">1</a>
-    <a href="?page=2">2</a>
-    <a href="?page=3">3</a>
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <strong>{{ num }}</strong>
+        {% else %}
+            <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">다음</a>
+    {% endif %}
 </div>
 {% endblock %}

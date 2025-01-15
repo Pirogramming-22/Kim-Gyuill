@@ -72,6 +72,7 @@ main {
 }
 
 .idea-card {
+    width: 300px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -87,7 +88,9 @@ main {
 }
 
 .idea-image img {
-    max-width: 100%;
+    width: 100%; /* 카드 너비에 맞춤 */
+    height: 150px; /* 일정한 높이로 고정 */
+    object-fit: cover; /* 이미지 비율을 유지하며 카드에 맞게 자름 */
     border-radius: 5px;
 }
 

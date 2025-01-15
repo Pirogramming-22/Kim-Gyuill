@@ -1,16 +1,22 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Idea
 from .forms import PostForm
 
-# Create your views here.
+# 메인 페이지 (아이디어 목록)
 def main(request):
-    ideas = Idea.objects.all()
+    ideas = Idea.objects.all()  # 모든 아이디어 가져오기
+    paginator = Paginator(ideas, 4)  # 페이지당 최대 4개
+    page_number = request.GET.get('page')  # 현재 페이지 번호 가져오기
+    page_obj = paginator.get_page(page_number)  # 해당 페이지의 아이디어 가져오기
+
     context = {
-        'ideas' : ideas
+        'page_obj': page_obj  # 페이지네이션 객체를 템플릿에 전달
     }
     return render(request, 'list.html', context)
 
+# 아이디어 생성
 def idea_create(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
@@ -24,13 +30,15 @@ def idea_create(request):
     form = PostForm()
     return render(request, 'register.html', {'form': form})
 
+# 아이디어 상세보기
 def idea_detail(request, pk):
     idea = Idea.objects.get(id=pk)
     context = {
-        'idea' : idea
+        'idea': idea
     }
     return render(request, 'detail.html', context)
 
+# 아이디어 수정
 def idea_update(request, pk):
     idea = get_object_or_404(Idea, pk=pk)
     if request.method == "POST":
@@ -46,8 +54,7 @@ def idea_update(request, pk):
     form = PostForm(instance=idea)
     return render(request, 'register.html', {'form': form, 'idea': idea})
 
-
-
+# 아이디어 삭제
 def idea_delete(request, pk):
     idea = get_object_or_404(Idea, pk=pk)
     if request.method == "POST":
