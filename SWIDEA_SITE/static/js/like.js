@@ -29,3 +29,33 @@ document.querySelectorAll('.like-button').forEach(button => {
         .catch(error => console.error('Error:', error));
     });
 });
+
+// 관심도
+document.querySelectorAll('.interest-up, .interest-down').forEach(button => {
+    button.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const ideaId = this.dataset.id;
+        const isUp = this.classList.contains('interest-up'); // up인지 down인지 확인
+        const interestValueElement = document.getElementById(`interest-${ideaId}`);
+
+        fetch(`/update-interest/${ideaId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ increment: isUp })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                interestValueElement.textContent = data.new_interest; // 새로운 관심도 업데이트
+            } else {
+                console.error(data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});

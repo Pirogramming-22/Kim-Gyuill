@@ -25,4 +25,7 @@ urlpatterns = [
 
     # 찜하기
     path('like/<int:pk>/', toggle_like, name='toggle_like'),
+
+    #관심도 변경
+    path('update-interest/<int:pk>/', update_interest, name='update_interest'),
 ]

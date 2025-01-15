@@ -131,6 +131,37 @@ main {
     transform: scale(1.1);
 }
 
+/* 관심도 버튼 */
+.interest-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.interest-up, .interest-down {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.interest-up:hover, .interest-down:hover {
+    background-color: #0056b3;
+}
+
+.interest-value {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+
+
 /* 페이지네이션 */
 .pagination {
     text-align: center;
@@ -151,3 +182,5 @@ main {
     background-color: #007bff;
     color: #ffffff;
 }
+
+

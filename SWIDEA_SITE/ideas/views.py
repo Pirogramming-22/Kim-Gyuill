@@ -4,6 +4,8 @@ from django.urls import reverse
 from .models import Idea
 from .forms import PostForm
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # 메인 페이지 (아이디어 목록)
 def main(request):
@@ -71,3 +73,22 @@ def toggle_like(request, pk):
         print(f"Idea {pk} liked status toggled to {idea.is_liked}")  # 디버깅용
         return JsonResponse({"is_liked": idea.is_liked})
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+@csrf_exempt
+def update_interest(request, pk):
+    if request.method == "POST":
+        try:
+            idea = Idea.objects.get(pk=pk)
+            data = json.loads(request.body)
+            increment = data.get('increment', True)
+            if increment:
+                idea.interest += 1
+            else:
+                idea.interest = max(0, idea.interest - 1)  # 관심도가 음수가 되지 않도록 설정
+            idea.save()
+            return JsonResponse({'success': True, 'new_interest': idea.interest})
+        except Idea.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Idea not found'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})

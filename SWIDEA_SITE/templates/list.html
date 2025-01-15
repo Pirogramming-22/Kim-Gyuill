@@ -39,7 +39,11 @@
             <div class="idea-content">
                 <h2>{{ idea.title }}</h2>
                 <p>예상 개발 툴: {{ idea.devtool }}</p>
-                <p>아이디어 관심도: {{ idea.interest }}</p>
+                <p>아이디어 관심도: 
+                    <button class="interest-up" type="button" data-id="{{ idea.id }}">▲</button>
+                    <span class="interest-value" id="interest-{{ idea.id }}">{{ idea.interest }}</span>
+                    <button class="interest-down" type="button" data-id="{{ idea.id }}">▼</button>
+                </p>
             </div>
         </a>
         <button class="like-button" data-id="{{ idea.id }}">
