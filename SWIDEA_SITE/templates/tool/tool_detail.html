@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}개발툴 디테일 페이지{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'tool_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="idea-detail-header">
+    <h1>DevTool Detail</h1>
+    <p>개발툴 세부내용 페이지입니다. 자신이 선호하는 개발툴에 대한 상세내용을 확인해 보아요.</p>
+</section>
+
+<div class="detail-container">
+    <div class="detail-card">
+        <h2>{{ tool.name }}</h2>
+        <p><strong>{{ tool.type }}</strong></p>
+        <p>{{ tool.content }}</p>
+
+        <div class="software-list">
+            <h3>➤ 만들 수 있는 SW 목록</h3>
+            <ul>
+                {% comment %} {% for software in tool.software_set.all %}
+                    <li>{{ software.name }}</li>
+                {% empty %}
+                    <li>등록된 소프트웨어가 없습니다.</li>
+                {% endfor %} {% endcomment %}
+            </ul>
+        </div>
+
+        <div class="action-buttons">
+            <form action="{% url 'tools:tools_delete' tool.pk %}" method="post" class="btn-delete">
+                {% csrf_token %}
+                <button type="submit">삭제</button>
+            </form>
+            <a class="btn-list" href="{% url 'tools:tools_list' %}">목록</a>
+            <a class="btn-edit" href="{% url 'tools:tools_update' tool.pk %}">수정</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}아이디어 등록{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    
+    <section class="idea-register-header">
+        <h1>DevTool Register</h1>
+        <p>개발툴 등록 페이지입니다. 자신이 다룰 수 있는 개발 툴을 등록하세요!</p>
+    </section>
+
+    <form action="{% if tool %}{% url 'tools:tools_update' tool.pk %}{% else %}{% url 'tools:tools_create' %}{% endif %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="form_label">
+            <label for="name">이름:</label>
+        </div>
+        {{ form.name }}
+
+        <div class="form_label">
+            <label for="type">종류:</label>
+        </div>
+        {{ form.type }}
+
+        <div class="form_label">
+            <label for="content">개발툴 설명:</label>
+        </div>
+        {{ form.content }}
+
+
+        <button type="submit" class="btn-save">Save</button>
+    </form>
+</div>
+{% endblock %}
