@@ -9,13 +9,27 @@ import json
 
 # 메인 페이지 (아이디어 목록)
 def main(request):
-    ideas = Idea.objects.all() 
-    paginator = Paginator(ideas, 4)
-    page_number = request.GET.get('page') 
-    page_obj = paginator.get_page(page_number)
+    sort_option = request.GET.get('sort', 'newest')  # 기본 정렬 기준: 최신순
+    ideas = Idea.objects.all()
+
+    if sort_option == 'popularity':  # 관심도순
+        ideas = ideas.order_by('-interest')
+    elif sort_option == 'newest':  # 최신순
+        ideas = ideas.order_by('-id')
+    elif sort_option == 'oldest':  # 등록순
+        ideas = ideas.order_by('id')
+    elif sort_option == 'name_asc':  # 이름순
+        ideas = ideas.order_by('title')
+    elif sort_option == 'liked':  # 찜하기순
+        ideas = ideas.order_by('-is_liked')
+
+    paginator = Paginator(ideas, 4)  # 페이지당 4개의 아이디어
+    page_number = request.GET.get('page')  # 현재 페이지 번호 가져오기
+    page_obj = paginator.get_page(page_number)  # 해당 페이지의 아이디어 가져오기
 
     context = {
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'sort_option': sort_option  # 정렬 기준을 템플릿에 전달
     }
     return render(request, 'list.html', context)
 

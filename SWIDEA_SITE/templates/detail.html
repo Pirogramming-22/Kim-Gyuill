@@ -33,6 +33,11 @@
             </p>
             <p>3) 아이디어 설명: <br><strong>{{ idea.content }}</strong></p>
         </div>
+        <button class="like-button" data-id="{{ idea.id }}">
+            <img src="{% if idea.is_liked %}{% static 'img/채워진 별.png' %}{% else %}{% static 'img/빈 별.png' %}{% endif %}" 
+                alt="찜하기 버튼" 
+                class="star-icon">
+        </button>
     </div>
 
     <div class="idea-actions">
@@ -44,4 +49,8 @@
         <a class="btn-edit" href="{% url 'ideas:idea_update' idea.pk %}">수정</a>
     </div>
 </div>
+<script>
+    const csrfToken = '{{ csrf_token }}';
+</script>
+<script src="{% static 'js/like.js' %}"></script>
 {% endblock %}
