@@ -20,6 +20,40 @@ main {
     color: #666;
 }
 
+.filter-sort-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-form input,
+.filter-form select,
+.filter-form button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.filter-form button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-form button:hover {
+    background-color: #0056b3;
+}
+
+
 /* 정렬 버튼 */
 .sort-button {
     text-align: right;
@@ -57,7 +91,8 @@ main {
 }
 
 .sort-button .dropdown-menu li {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2px;
+    text-align: center;
 }
 
 .sort-button .dropdown-menu li a {

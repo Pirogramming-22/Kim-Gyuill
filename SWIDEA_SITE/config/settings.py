@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],  # 전역 템플릿 디렉토리
-        'APP_DIRS': False,  # 앱 내 templates 디렉토리는 비활성화
+        'APP_DIRS': True,  # 앱 내 templates 디렉토리는 비활성화
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

@@ -14,29 +14,40 @@
     <p>다양한 아이디어를 한 눈에 관리하고 기록하세요!</p>
 </section>
 
-<div class="sort-button">
-    <button class="dropdown-btn">
-        {% if sort_option == "liked" %}
-            찜하기순
-        {% elif sort_option == "name_asc" %}
-            이름순
-        {% elif sort_option == "oldest" %}
-            등록순
-        {% elif sort_option == "newest" %}
-            최신순
-        {% elif sort_option == "popularity" %}
-            관심도순
-        {% else %}
-            정렬 기준
-        {% endif %}
-    </button>
-    <ul class="dropdown-menu">
-        <li><a href="?sort=liked">찜하기순</a></li>
-        <li><a href="?sort=name_asc">이름순</a></li>
-        <li><a href="?sort=oldest">등록순</a></li>
-        <li><a href="?sort=newest">최신순</a></li>
-        <li><a href="?sort=popularity">관심도순</a></li>
-    </ul>
+<div class="filter-sort-bar">
+
+    <!-- 정렬 버튼 -->
+    <div class="sort-button">
+        <button class="dropdown-btn">
+            {% if sort_option == "liked" %}
+                찜하기순
+            {% elif sort_option == "name_asc" %}
+                이름순
+            {% elif sort_option == "oldest" %}
+                등록순
+            {% elif sort_option == "newest" %}
+                최신순
+            {% elif sort_option == "popularity" %}
+                관심도순
+            {% else %}
+                정렬 기준
+            {% endif %}
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="?sort=liked">찜하기순</a></li>
+            <li><a href="?sort=name_asc">이름순</a></li>
+            <li><a href="?sort=oldest">등록순</a></li>
+            <li><a href="?sort=newest">최신순</a></li>
+            <li><a href="?sort=popularity">관심도순</a></li>
+        </ul>
+    </div>
+
+    <!-- 필터링 검색 -->
+    <form method="get" class="filter-form">
+        <input type="text" name="title" placeholder="제목 검색" value="{{ request.GET.title }}" />
+        <button type="submit">검색</button>
+    </form>
+
 </div>
 
 <div class="idea-list">

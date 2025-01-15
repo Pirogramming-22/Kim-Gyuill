@@ -4,7 +4,6 @@ from .models import Tool
 from .forms import ToolForm
 from django.core.paginator import Paginator
 
-# Create your views here.
 
 # Create your views here.
 def tools_list(request):

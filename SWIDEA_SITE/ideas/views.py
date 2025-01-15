@@ -7,11 +7,17 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-# 메인 페이지 (아이디어 목록)
 def main(request):
     sort_option = request.GET.get('sort', 'newest')  # 기본 정렬 기준: 최신순
+    title_filter = request.GET.get('title', '')
+
     ideas = Idea.objects.all()
 
+    # 필터링
+    if title_filter:
+        ideas = ideas.filter(title__icontains=title_filter)
+
+    # 정렬
     if sort_option == 'popularity':  # 관심도순
         ideas = ideas.order_by('-interest')
     elif sort_option == 'newest':  # 최신순
@@ -27,9 +33,13 @@ def main(request):
     page_number = request.GET.get('page')  # 현재 페이지 번호 가져오기
     page_obj = paginator.get_page(page_number)  # 해당 페이지의 아이디어 가져오기
 
+    # 예상 개발 툴 목록 추출 (중복 제거)
+    devtools = Idea.objects.values_list('devtool', flat=True).distinct()
+
     context = {
         'page_obj': page_obj,
-        'sort_option': sort_option  # 정렬 기준을 템플릿에 전달
+        'sort_option': sort_option,
+        'devtools': devtools  # 예상 개발 툴 목록 전달
     }
     return render(request, 'list.html', context)
 
