@@ -2,13 +2,19 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Tool
 from .forms import ToolForm
+from django.core.paginator import Paginator
+
 # Create your views here.
 
 # Create your views here.
 def tools_list(request):
     tools = Tool.objects.all()
+    paginator = Paginator(tools, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
-        'tools' : tools
+        'page_obj' : page_obj,
     }
     return render(request, 'tool/tool_list.html', context)
 

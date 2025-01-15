@@ -14,19 +14,9 @@
     <p>개발툴 목록 페이지 입니다. 자신이 선호하는 개발툴 목록을 확인해보세요.</p>
 </section>
 
-<div class="sort-button">
-    <button class="dropdown-btn">정렬 기준</button>
-    <ul class="dropdown-menu">
-        <li><a href="?sort=popularity">관심도순</a></li>
-        <li><a href="?sort=newest">최신순</a></li>
-        <li><a href="?sort=oldest">오래된순</a></li>
-        <li><a href="?sort=name_asc">이름순</a></li>
-        <li><a href="?sort=name_desc">이름역순</a></li>
-    </ul>
-</div>
 
 <div class="idea-list">
-    {% for tool in tools %}
+    {% for tool in page_obj %}
     <a href="{% url 'tools:tools_detail' tool.pk %}" class="idea-card">
         <div class="idea-content">
             <div id='content1'>
@@ -48,19 +38,21 @@
 </div>
 
 <!-- 페이지네이션 -->
-{% comment %} <div class="pagination">
-    {% if tool.has_previous %}
-        <a href="?page={{ tool.previous_page_number }}">이전</a>
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">이전</a>
     {% endif %}
-    {% for page in tool.paginator.page_range %}
-        {% if page == tool.number %}
-            <span>{{ page }}</span>
+    
+    {% for page_num in page_obj.paginator.page_range %}
+        {% if page_num == page_obj.number %}
+            <span>{{ page_num }}</span>
         {% else %}
-            <a href="?page={{ page }}">{{ page }}</a>
+            <a href="?page={{ page_num }}">{{ page_num }}</a>
         {% endif %}
     {% endfor %}
-    {% if tool.has_next %}
-        <a href="?page={{ tool.next_page_number }}">다음</a>
+    
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">다음</a>
     {% endif %}
-</div> {% endcomment %}
+</div>
 {% endblock %}

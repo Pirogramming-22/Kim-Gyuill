@@ -24,10 +24,14 @@
             {% endif %}
         </div>
         <div class="idea-info">
-            <h2>{{ idea.title }} <span>⭐</span></h2>
+            <h2>{{ idea.title }}</h2>
             <p>1) 아이디어 관심도: <strong>{{ idea.interest }}</strong></p>
-            <p>2) 예상 개발 툴: <strong>{{ idea.devtool }}</strong></p>
-            <p>3) 아이디어 설명: <strong>{{ idea.content }}</strong></p>
+            <p>2) 예상 개발 툴:
+                <strong>
+                    <a href="{% url 'tools:tools_detail' idea.devtool.pk %}">{{ idea.devtool }}</a>
+                </strong>
+            </p>
+            <p>3) 아이디어 설명: <br><strong>{{ idea.content }}</strong></p>
         </div>
     </div>
 

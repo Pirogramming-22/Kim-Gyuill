@@ -9,13 +9,13 @@ import json
 
 # 메인 페이지 (아이디어 목록)
 def main(request):
-    ideas = Idea.objects.all()  # 모든 아이디어 가져오기
-    paginator = Paginator(ideas, 4)  # 페이지당 최대 4개
-    page_number = request.GET.get('page')  # 현재 페이지 번호 가져오기
-    page_obj = paginator.get_page(page_number)  # 해당 페이지의 아이디어 가져오기
+    ideas = Idea.objects.all() 
+    paginator = Paginator(ideas, 4)
+    page_number = request.GET.get('page') 
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'page_obj': page_obj  # 페이지네이션 객체를 템플릿에 전달
+        'page_obj': page_obj
     }
     return render(request, 'list.html', context)
 

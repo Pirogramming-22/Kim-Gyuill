@@ -23,11 +23,11 @@
         <div class="software-list">
             <h3>➤ 만들 수 있는 SW 목록</h3>
             <ul>
-                {% comment %} {% for software in tool.software_set.all %}
-                    <li>{{ software.name }}</li>
-                {% empty %}
-                    <li>등록된 소프트웨어가 없습니다.</li>
-                {% endfor %} {% endcomment %}
+                {% for idea in tool.ideas.all %}
+                <li><a href="{% url 'ideas:idea_detail' idea.pk %}">{{ idea.title }}</a></li>
+            {% empty %}
+                <li>이 툴을 사용하는 아이디어가 없습니다.</li>
+            {% endfor %}
             </ul>
         </div>
 
