@@ -20,7 +20,9 @@ urlpatterns = [
     # 업데이트 페이지
     path('update/<int:pk>', idea_update, name='idea_update'),
 
-    # 삭제제
+    # 삭제
     path('delete/<int:pk>', idea_delete, name='idea_delete'),
 
+    # 찜하기
+    path('like/<int:pk>/', toggle_like, name='toggle_like'),
 ]

@@ -6,3 +6,5 @@ class Tool(models.Model):
     type = models.TextField()
     content = models.TextField()
 
+    def __str__(self):
+        return self.name

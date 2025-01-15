@@ -27,20 +27,27 @@
 
 <div class="idea-list">
     {% for idea in page_obj %}
-    <a href="{% url 'ideas:idea_detail' idea.pk %}" class="idea-card">
-        <div class="idea-image">
-            {% if idea.image %}
-                <img src="{{ idea.image.url }}" alt="{{ idea.title }} 이미지">
-            {% else %}
-                <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
-            {% endif %}
-        </div>
-        <div class="idea-content">
-            <h2>{{ idea.title }}</h2>
-            <p>예상 개발 툴: {{ idea.devtool }}</p>
-            <p>아이디어 관심도: {{ idea.interest }}</p>
-        </div>
-    </a>
+    <div class="idea-card">
+        <a href="{% url 'ideas:idea_detail' idea.pk %}">
+            <div class="idea-image">
+                {% if idea.image %}
+                    <img src="{{ idea.image.url }}" alt="{{ idea.title }} 이미지">
+                {% else %}
+                    <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+                {% endif %}
+            </div>
+            <div class="idea-content">
+                <h2>{{ idea.title }}</h2>
+                <p>예상 개발 툴: {{ idea.devtool }}</p>
+                <p>아이디어 관심도: {{ idea.interest }}</p>
+            </div>
+        </a>
+        <button class="like-button" data-id="{{ idea.id }}">
+            <img src="{% if idea.is_liked %}{% static 'img/채워진 별.png' %}{% else %}{% static 'img/빈 별.png' %}{% endif %}" 
+                alt="찜하기 버튼" 
+                class="star-icon">
+        </button>
+    </div>
     {% empty %}
     <div class="empty-div">
         <p>첫번째 리뷰를 작성해주세요!</p>
@@ -65,4 +72,8 @@
         <a href="?page={{ page_obj.next_page_number }}">다음</a>
     {% endif %}
 </div>
+<script>
+    const csrfToken = '{{ csrf_token }}'; // CSRF 토큰 설정
+</script>
+<script src="{% static 'js/like.js' %}"></script> <!-- 외부 스크립트 로드 -->
 {% endblock %}

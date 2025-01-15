@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Idea
 from .forms import PostForm
+from django.http import JsonResponse
 
 # 메인 페이지 (아이디어 목록)
 def main(request):
@@ -61,3 +62,12 @@ def idea_delete(request, pk):
         idea.delete() 
         return redirect('ideas:main')
     return redirect('ideas:idea_detail', pk=pk)
+
+def toggle_like(request, pk):
+    idea = get_object_or_404(Idea, pk=pk)
+    if request.method == "POST":
+        idea.is_liked = not idea.is_liked
+        idea.save()
+        print(f"Idea {pk} liked status toggled to {idea.is_liked}")  # 디버깅용
+        return JsonResponse({"is_liked": idea.is_liked})
+    return JsonResponse({"error": "Invalid request"}, status=400)

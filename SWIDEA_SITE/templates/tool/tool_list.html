@@ -29,9 +29,15 @@
     {% for tool in tools %}
     <a href="{% url 'tools:tools_detail' tool.pk %}" class="idea-card">
         <div class="idea-content">
-            <h2>{{ tool.name }}</h2>
-            <p>예상 개발 툴: {{ tool.type }}</p>
-            <p>아이디어 관심도: {{ tool.content }}</p>
+            <div id='content1'>
+                <h2>{{ tool.name }}</h2>
+            </div>
+            <div id='content2'>
+                <p>{{ tool.type }}</p>
+            </div>
+            <div id='content3'>
+                <p>{{ tool.content }}</p>
+            </div>
         </div>
     </a>
     {% empty %}
