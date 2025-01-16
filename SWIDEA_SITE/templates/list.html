@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}아이디어 관리{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'list.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="idea-list-header">
+    <h1>Idea List</h1>
+    <p>다양한 아이디어를 한 눈에 관리하고 기록하세요!</p>
+</section>
+
+<div class="filter-sort-bar">
+
+    <!-- 정렬 버튼 -->
+    <div class="sort-button">
+        <button class="dropdown-btn">
+            {% if sort_option == "liked" %}
+                찜하기순
+            {% elif sort_option == "name_asc" %}
+                이름순
+            {% elif sort_option == "oldest" %}
+                등록순
+            {% elif sort_option == "newest" %}
+                최신순
+            {% elif sort_option == "popularity" %}
+                관심도순
+            {% else %}
+                정렬 기준
+            {% endif %}
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="?sort=liked">찜하기순</a></li>
+            <li><a href="?sort=name_asc">이름순</a></li>
+            <li><a href="?sort=oldest">등록순</a></li>
+            <li><a href="?sort=newest">최신순</a></li>
+            <li><a href="?sort=popularity">관심도순</a></li>
+        </ul>
+    </div>
+
+    <!-- 필터링 검색 -->
+    <form method="get" class="filter-form">
+        <input type="text" name="title" placeholder="제목 검색" value="{{ request.GET.title }}" />
+        <button type="submit">검색</button>
+    </form>
+
+</div>
+
+<div class="idea-list">
+    {% for idea in page_obj %}
+    <div class="idea-card">
+        <a href="{% url 'ideas:idea_detail' idea.pk %}">
+            <div class="idea-image">
+                {% if idea.image %}
+                    <img src="{{ idea.image.url }}" alt="{{ idea.title }} 이미지">
+                {% else %}
+                    <img src="{% static 'ex_img.png' %}" alt="기본 이미지">
+                {% endif %}
+            </div>
+            <div class="idea-content">
+                <h2>{{ idea.title }}</h2>
+                <p>예상 개발 툴: {{ idea.devtool }}</p>
+                <p>아이디어 관심도: 
+                    <button class="interest-up" type="button" data-id="{{ idea.id }}">▲</button>
+                    <span class="interest-value" id="interest-{{ idea.id }}">{{ idea.interest }}</span>
+                    <button class="interest-down" type="button" data-id="{{ idea.id }}">▼</button>
+                </p>
+            </div>
+        </a>
+        <button class="like-button" data-id="{{ idea.id }}">
+            <img src="{% if idea.is_liked %}{% static 'img/채워진 별.png' %}{% else %}{% static 'img/빈 별.png' %}{% endif %}" 
+                alt="찜하기 버튼" 
+                class="star-icon">
+        </button>
+    </div>
+    {% empty %}
+    <div class="empty-div">
+        <p>첫번째 리뷰를 작성해주세요!</p>
+    </div>
+    {% endfor %}
+</div>
+<!-- 페이지네이션 -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <strong>{{ num }}</strong>
+        {% else %}
+            <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">다음</a>
+    {% endif %}
+</div>
+<script>
+    const csrfToken = '{{ csrf_token }}';
+</script>
+<script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

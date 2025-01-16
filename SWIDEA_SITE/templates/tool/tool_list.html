@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}DevTool 관리{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'tool_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="idea-list-header">
+    <h1>DevTool List</h1>
+    <p>개발툴 목록 페이지 입니다. 자신이 선호하는 개발툴 목록을 확인해보세요.</p>
+</section>
+
+
+<div class="idea-list">
+    {% for tool in page_obj %}
+    <a href="{% url 'tools:tools_detail' tool.pk %}" class="idea-card">
+        <div class="idea-content">
+            <div id='content1'>
+                <h2>{{ tool.name }}</h2>
+            </div>
+            <div id='content2'>
+                <p>{{ tool.type }}</p>
+            </div>
+            <div id='content3'>
+                <p>{{ tool.content }}</p>
+            </div>
+        </div>
+    </a>
+    {% empty %}
+    <div class="empty-div">
+        <p>등록된 DevTool이 없습니다. 새로 추가해주세요!</p>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- 페이지네이션 -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+    {% endif %}
+    
+    {% for page_num in page_obj.paginator.page_range %}
+        {% if page_num == page_obj.number %}
+            <span>{{ page_num }}</span>
+        {% else %}
+            <a href="?page={{ page_num }}">{{ page_num }}</a>
+        {% endif %}
+    {% endfor %}
+    
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">다음</a>
+    {% endif %}
+</div>
+{% endblock %}
