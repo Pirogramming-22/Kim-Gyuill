@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pirostagram</title>
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <a href="{% url 'board:profile_page' %}">
+                    <img src="{% static 'assets/icons/X_아이콘.png' %}" alt="뒤로 가기 버튼" class="cancel">
+                </a>
+                <div class="header__title">새 게시물</div>
+                <button type="submit" form="uploadForm" class="upload-button">업로드</button>
+            </header>
+            <main>
+                <form id="uploadForm" action="{% url 'board:upload_page' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <!-- 이미지 필드 -->
+                    <div class="form_label">
+                        <label for="image">이미지:</label>
+                    </div>
+                    {{ form.image }}
+
+                    <!-- 내용 필드 -->
+                    <div class="form_label">
+                        <label for="content">내용:</label>
+                    </div>
+                    {{ form.content }}
+                    
+                    <!-- 오류 메시지 -->
+                    {% if form.errors %}
+                        <div class="error-messages">
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </form>
+            </main>
+        </div>
+    </body>
+</html>

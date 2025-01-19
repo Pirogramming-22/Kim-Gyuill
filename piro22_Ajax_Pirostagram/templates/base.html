@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pirostagram</title>
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block extra_css %}{% endblock %}
+    
+    </head>
+    <body>
+        <div class="container">
+        <header class="header">
+            <button>
+            <img src="{% static 'assets/icons/goBack.svg' %}" alt="뒤로 가기 버튼">
+            </button>
+            <div class="header__username">Pirogramming</div>
+            <div class="header__rightButtons">
+            <button><img src="{% static 'assets/icons/alarm.svg' %}" alt="알림 버튼"></button>
+            <button><img src="{% static 'assets/icons/more.svg' %}" alt="더보기 버튼"></button>
+            </div>
+        </header>
+
+        {% block content %}{% endblock %}
+        
+        <footer class="footer_nav">
+            <button class="navBar">
+                <img src="{% static 'assets/icons/집_기본.svg' %}" 
+                    data-default-src="{% static 'assets/icons/집_기본.svg' %}" 
+                    data-selected-src="{% static 'assets/icons/집_터치.svg' %}" 
+                    alt="집">
+            </button>
+            <button class="navBar">
+                <img src="{% static 'assets/icons/돋보기_기본.svg' %}" 
+                    data-default-src="{% static 'assets/icons/돋보기_기본.svg' %}" 
+                    data-selected-src="{% static 'assets/icons/돋보기_터치.svg' %}" 
+                    alt="돋보기">
+            </button>
+            <button class="navBar">
+                <a href="{% url 'board:upload_page' %}">
+                    <img src="{% static 'assets/icons/post.svg' %}" 
+                        data-default-src="{% static 'assets/icons/post.svg' %}" 
+                        data-selected-src="{% static 'assets/icons/post.svg' %}" 
+                        alt="게시물 작성">
+                </a>
+            </button>
+            <button class="navBar">
+                <img src="{% static 'assets/icons/릴스_기본.png' %}" 
+                    data-default-src="{% static 'assets/icons/릴스_기본.png' %}" 
+                    data-selected-src="{% static 'assets/icons/릴스_터치.png' %}" 
+                    alt="릴스">
+            </button>
+            <button class="navBar navBar--selected">
+                <div class="nav_profile__image">
+                    <img src="{% static 'assets/images/profilePicture.png' %}"
+                    data-default-src="{% static 'assets/images/profilePicture.png' %}"
+                    data-selected-src="{% static 'assets/images/profilePicture.png' %}"
+                    alt="프로필 사진" />
+                </div>
+            </button>
+        </footer>
+        
+    
+        </div>
+        <script>
+            const navButtons = document.querySelectorAll('footer .navBar');
+        
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('footer .navBar--selected').forEach(selected => {
+                        selected.classList.remove('navBar--selected');
+                        const img = selected.querySelector('img');
+                        img.src = img.getAttribute('data-default-src');
+                    });
+        
+                    button.classList.add('navBar--selected');
+                    const img = button.querySelector('img');
+                    img.src = img.getAttribute('data-selected-src');
+                });
+            });
+        </script>
+    </body>
+</html>
