@@ -1,16 +1,23 @@
-:root {
-    /* spacing */
-    --gutter: 20px;
-    --padding: 16px;
-    --padding-sm: 10px;
-  
-    /* fontsize */
-    --heading: 1.6rem;
-    --body: 1.4rem;
-  
-    /* color */
-    --blue: #1fa1ff;
-    --gray: #c4c4c4;
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.header__username {
+    font-style: 1.6rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    font-weight: bold;
+}
+
+.header_rightButtons{
+    display: flex;
+    gap: 16px;
 }
 
 
@@ -49,14 +56,7 @@
 
 
 /* layout */
-.container {
-    width: 390px;
-    height: 100dvh;
-    margin: auto;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-}
+
   
 main {
 flex-grow: 1;
@@ -94,7 +94,7 @@ overflow-y: scroll;
     width: 99%;
 }
 
-.posts__photo > img {
+.posts__photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;

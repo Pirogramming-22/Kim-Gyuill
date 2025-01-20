@@ -1,3 +1,20 @@
+:root {
+    /* spacing */
+    --gutter: 20px;
+    --padding: 16px;
+    --padding-sm: 10px;
+  
+    /* fontsize */
+    --heading: 1.6rem;
+    --body: 1.4rem;
+  
+    /* color */
+    --blue: #1fa1ff;
+    --gray: #c4c4c4;
+    --white: #ffffff;
+
+}
+
 html, body, * {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -9,31 +26,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, *::-webkit-scrollbar {
 
 .container {
     width: 390px;
-    height: 100dvh;
+    height: 85dvh;
     margin: auto;
     background-color: #000;
-}
-  
-.header{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    position: relative;
-}
-  
-.header__username {
-    font-style: 1.6rem;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); 
-    font-weight: bold;
-}
-  
-.header_rightButtons{
-    display: flex;
-    gap: 16px;
+    flex-direction: column;
 }
 
 footer {

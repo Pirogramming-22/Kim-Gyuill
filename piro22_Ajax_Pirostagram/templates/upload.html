@@ -33,6 +33,11 @@
                         <label for="content">내용:</label>
                     </div>
                     {{ form.content }}
+
+                    <div class="form_label">
+                        <label for="content">촬영 장소:</label>
+                    </div>
+                    {{ form.location }}
                     
                     <!-- 오류 메시지 -->
                     {% if form.errors %}

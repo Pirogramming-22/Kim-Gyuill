@@ -8,7 +8,8 @@ class Board(models.Model):
         blank=True,
         null=False
     )
-    content = models.TextField('게시물 내용:')
+    content = models.TextField('게시물 내용:', default="")
+    location = models.CharField(max_length=200, default=" ")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="등록일")
     like = models.IntegerField(default=0)
 

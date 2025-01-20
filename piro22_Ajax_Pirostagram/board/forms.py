@@ -4,7 +4,7 @@ from .models import Board
 class PostForm(forms.ModelForm):
     class Meta:
         model = Board
-        fields = ('image', 'content')
+        fields = ('image', 'content', 'location')
     
     def clean_image(self):
         image = self.cleaned_data.get('image')

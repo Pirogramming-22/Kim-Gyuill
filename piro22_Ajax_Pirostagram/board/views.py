@@ -19,3 +19,10 @@ def upload_page(request):
     # GET 요청인 경우 빈 폼을 생성
     form = PostForm()
     return render(request, 'upload.html', {'form': form})
+
+def detail_page(request, pk):
+    post = Board.objects.get(id=pk)
+    context = {
+        'post': post
+    }
+    return render(request, 'detail.html', context)
