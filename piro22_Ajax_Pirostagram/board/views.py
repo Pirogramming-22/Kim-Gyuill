@@ -46,3 +46,7 @@ def like_post(request):
     board.save()
 
     return JsonResponse({'id':board_id, 'type':button_type})
+
+def search_page(request):
+    boards = Board.objects.all()
+    return render(request, 'search.html', {'boards': boards})

@@ -8,58 +8,18 @@
     <title>Pirostagram</title>
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/search.css' %}" />
   </head>
   <body>
     <div class="container">
       <header class="header">
-        <button><img src="{% static 'assets/icons/goBack.svg' %}" alt="뒤로 가기 버튼" /></button>
-        <div class="header__username">Pirogramming</div>
-        <div class="header__rightButtons">
-          <button><img src="{% static 'assets/icons/alarm.svg' %}" alt="알림 버튼" /></button>
-          <button><img src="{% static 'assets/icons/more.svg' %}" alt="더보기 버튼" /></button>
+        <div class="header__search">
+          <img src="{% static 'assets/icons/돋보기_기본.svg' %}" alt="돋보기 아이콘" class="search__icon" />
+          <input type="text" class="search" id="searchInput" placeholder="검색" />
         </div>
       </header>
       <main>
-        <section class="profile">
-          <div class="profile__image">
-            <img src="{% static 'assets/images/profilePicture.png' %}" alt="프로필 사진" />
-          </div>
-          <div class="profile__data">
-            <div class="profile__data-item">
-              <div class="profile__data-number">{{ boards|length }}</div>
-              <div class="profile__data-type">Posts</div>
-            </div>
-            <div class="profile__data-item">
-              <div class="profile__data-number">5,678</div>
-              <div class="profile__data-type">Followers</div>
-            </div>
-            <div class="profile__data-item">
-              <div class="profile__data-number">9,101</div>
-              <div class="profile__data-type">Following</div>
-            </div>
-          </div>
-        </section>
-        <section class="userInfo">
-          <div>
-            <div class="userInfo__username">Pirogramming</div>
-            <div class="userInfo__category">컴퓨터 회사</div>
-            <div class="userInfo__description">프로그래밍의 첫 걸음, 피로그래밍</div>
-          </div>
-          <button class="userInfo__follow">Follow</button>
-        </section>
-        <aside class="highlights">
-          <div class="highlights__item">
-            <button class="highlights__item-image"><img src="{% static 'assets/images/profilePicture.png' %}" alt="하이라이트 보기" /></button>
-            <div class="highlights_item-title">Title</div>
-          </div>
-        </aside>
         <section class="posts">
-          <nav class="posts__tabBar">
-            <div class="posts__tab posts__tab--selected">1</div>
-            <div class="posts__tab">2</div>
-            <div class="posts__tab">3</div>
-          </nav>
           <article class="posts__contents">
             {% for board in boards %}
               <div class="posts__photo">

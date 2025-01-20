@@ -9,5 +9,6 @@ urlpatterns = [
     path('upload/', upload_page, name="upload_page"),
     path('detail/<int:pk>', detail_page, name="detail_page"),
     path('like_post/', like_post, name='like_post'),
+    path('search/', search_page, name='search_page'),
 
 ] 

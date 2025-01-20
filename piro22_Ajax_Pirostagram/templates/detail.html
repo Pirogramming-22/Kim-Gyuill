@@ -24,6 +24,10 @@
                     </div>
                 </div>
                 <div class="menu-button">•••</div>
+                <div class="dropdown-menu hidden" id="dropdown-menu">
+                    <a>수정</a>
+                    <a>삭제</a>
+                </div>
             </div>
             <main>
                 <!-- Post Content -->
@@ -102,19 +106,21 @@
                         alt="릴스">
                 </button>
                 <button class="navBar navBar--selected">
-                    <div class="nav_profile__image">
-                        <img src="{% static 'assets/images/profilePicture.png' %}"
-                        data-default-src="{% static 'assets/images/profilePicture.png' %}"
-                        data-selected-src="{% static 'assets/images/profilePicture.png' %}"
-                        alt="프로필 사진" />
-                    </div>
+                    <a href="{% url 'board:profile_page' %}">
+                        <div class="nav_profile__image">
+                            <img src="{% static 'assets/images/profilePicture.png' %}"
+                            data-default-src="{% static 'assets/images/profilePicture.png' %}"
+                            data-selected-src="{% static 'assets/images/profilePicture.png' %}"
+                            alt="프로필 사진" />
+                        </div>
+                    </a>
                 </button>
             </footer>
         
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="{% static 'js/navigation.js' %}"></script>
+        <script src="{% static 'js/nav.js' %}"></script>
         <script src="{% static 'js/likeHandler.js' %}"></script>
     </body>
 </html>
