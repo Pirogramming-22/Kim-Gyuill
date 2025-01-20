@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>댓글</title>
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/comment.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <!-- 헤더 -->
+            <header class="header">
+                <a href="{% url 'board:detail_page' post.id %}" class="back-button">&lt;</a>
+                <h1>댓글</h1>
+            </header>
+
+            <main class="comments-section">
+                <div class="comments">
+                    <!-- 댓글 목록 -->
+                    {% for comment in comments %}
+                    <div class="comment">
+                        <span class="comment-username">user</span>
+                        <p class="comment-text">{{ comment.content }}</p>
+                        <div class="comment-actions">
+                            <span class="comment-time">{{ comment.created_at }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </main>
+            
+            <!-- 댓글 입력 -->
+            <footer class="comment-input-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="content" placeholder="댓글 추가..." required>
+                    <button type="submit">게시</button>
+                </form>
+            </footer>
+    </body>
+</html>

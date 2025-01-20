@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import PostForm
 from .models import Board
+from comment.models import  Comment
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -25,8 +26,10 @@ def upload_page(request):
 
 def detail_page(request, pk):
     post = Board.objects.get(id=pk)
+    comments_count = Comment.objects.filter(board=post).count()
     context = {
-        'post': post
+        'post': post,
+        'comments_count': comments_count
     }
     return render(request, 'detail.html', context)
 

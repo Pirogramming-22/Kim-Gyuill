@@ -1,0 +1,82 @@
+/* 댓글 페이지 컨테이너 */
+.container {
+    width: 390px;
+    height: 85dvh;
+    margin: auto;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+}
+
+/* 헤더 */
+.header {
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-bottom: 1px solid var(--gray);
+    font-size: var(--heading);
+    color: var(--white);
+}
+
+.header .back-button {
+    margin-right: var(--gutter);
+    font-size: var(--heading);
+    text-decoration: none;
+    color: var(--white);
+}
+
+/* 댓글 섹션 */
+.comments-section {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--padding);
+}
+
+.comment {
+    margin-bottom: var(--padding-sm);
+    padding-bottom: var(--padding-sm);
+    border-bottom: 1px solid var(--gray);
+}
+
+.comment-username {
+    font-weight: bold;
+    display: block;
+}
+
+.comment-text {
+    margin: 4px 0;
+}
+
+.comment-actions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* 댓글 입력 섹션 */
+.comment-input-section form {
+    display: flex;
+    align-items: center;
+    width: 147%;
+    gap: 8px;
+    padding: 16px;
+    border-top: 1px solid #ccc;
+}
+
+.comment-input-section input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.comment-input-section button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
