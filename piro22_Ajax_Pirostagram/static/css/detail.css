@@ -80,6 +80,9 @@ main {
     height: 16px;
 }
 
+.like-button svg:hover{
+    cursor: pointer;
+}
 .like-count {
     margin-bottom: 2px;
     display: inline-flex;

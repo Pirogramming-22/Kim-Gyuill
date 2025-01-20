@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,16 +30,39 @@
                                 <span class="comment-time">{{ comment.created_at }}</span>
                             </div>
                         </div>
-                        <form method="POST" action="{% url 'comment:delete_comment' comment.id %}" class = "delete-button">
+
+                        <form method="POST" action="{% url 'comment:delete_comment' comment.id %}" class="delete-button">
                             {% csrf_token %}
                             <button type="submit">삭제</button>
                         </form>
 
+                        <!-- 대댓글 입력 폼 -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="content" placeholder="대댓글 입력" required>
+                            <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                            <button type="submit" class="post-re-comment">게시</button>
+                        </form>
+
+                        <!-- 대댓글 출력 -->
+                        {% for reply in comment.replies.all %}
+                        <div class="reply">
+                            <span class="reply-username">user</span>
+                            <p class="reply-text">{{ reply.content }}</p>
+                            <div class="reply-actions">
+                                <span class="reply-time">{{ reply.created_at }}</span>
+                                <form method="POST" action="{% url 'comment:delete_reply' reply.id %}" class="delete-reply-button">
+                                    {% csrf_token %}
+                                    <button type="submit">삭제</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
                     </div>
                     {% endfor %}
                 </div>
             </main>
-            
+
             <!-- 댓글 입력 -->
             <footer class="comment-input-section">
                 <form method="POST">
@@ -48,5 +71,6 @@
                     <button type="submit">게시</button>
                 </form>
             </footer>
+        </div>
     </body>
 </html>
