@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import PostForm
 from .models import Board
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 def profile_page(request):
     boards = Board.objects.all()  # 모든 게시물 가져오기
@@ -26,3 +29,17 @@ def detail_page(request, pk):
         'post': post
     }
     return render(request, 'detail.html', context)
+
+@csrf_exempt
+def like_post(request):
+    req = json.loads(request.body)
+    board_id = req['id']
+    button_type = req['type']
+
+    board = Board.objects.get(id=board_id)
+
+    if button_type == 'like':
+        board.like += 1
+    board.save()
+
+    return JsonResponse({'id':board_id, 'type':button_type})

@@ -74,6 +74,11 @@ main {
     font-size: 16px;
 }
 
+.like-button svg{
+    width: 16px;
+    height: 16px;
+}
+
 .like-count {
     margin-bottom: 2px;
     display: inline-flex;
