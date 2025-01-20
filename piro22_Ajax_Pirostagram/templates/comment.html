@@ -23,11 +23,18 @@
                     <!-- 댓글 목록 -->
                     {% for comment in comments %}
                     <div class="comment">
-                        <span class="comment-username">user</span>
-                        <p class="comment-text">{{ comment.content }}</p>
-                        <div class="comment-actions">
-                            <span class="comment-time">{{ comment.created_at }}</span>
+                        <div class="comment-left">
+                            <span class="comment-username">user</span>
+                            <p class="comment-text">{{ comment.content }}</p>
+                            <div class="comment-actions">
+                                <span class="comment-time">{{ comment.created_at }}</span>
+                            </div>
                         </div>
+                        <form method="POST" action="{% url 'comment:delete_comment' comment.id %}" class = "delete-button">
+                            {% csrf_token %}
+                            <button type="submit">삭제</button>
+                        </form>
+
                     </div>
                     {% endfor %}
                 </div>

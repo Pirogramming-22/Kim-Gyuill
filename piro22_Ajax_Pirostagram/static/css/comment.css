@@ -37,6 +37,8 @@
     margin-bottom: var(--padding-sm);
     padding-bottom: var(--padding-sm);
     border-bottom: 1px solid var(--gray);
+    display: flex;
+    justify-content: space-between;
 }
 
 .comment-username {
@@ -79,4 +81,8 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.delete-button button{
+    color: var(--white);
 }

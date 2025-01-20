@@ -16,10 +16,10 @@ class Board(models.Model):
     def save(self, *args, **kwargs):
         # 기존 이미지를 교체할 경우 삭제
         if self.pk:
-            old_image = Board.objects.filter(pk=self.pk).first().image
-            if old_image and old_image != self.image:
-                if os.path.isfile(old_image.path):
-                    os.remove(old_image.path)
+            old_instance = Board.objects.filter(pk=self.pk).first()
+            if old_instance and old_instance.image and old_instance.image != self.image:
+                if os.path.isfile(old_instance.image.path):
+                    os.remove(old_instance.image.path)
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):

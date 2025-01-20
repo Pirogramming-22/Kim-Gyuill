@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from .models import Comment, Board
 
 def comment_page(request, pk):
@@ -12,9 +13,9 @@ def comment_page(request, pk):
     return render(request, 'comment.html', {'post': post, 'comments': comments})
 
 
-# def comment_delete(request, pk):
-#     if request.method == 'POST':
-#         comment = Comment.objects.get(id=pk)
-#         board_pk = comment.board.id
-#         comment.delete()
-#         return redirect('comment:comment_detail', pk=board_pk)
+def delete_comment(request, pk):
+    if request.method == "POST":
+        comment = get_object_or_404(Comment, pk=pk)
+        board_pk = comment.board.id
+        comment.delete()
+        return redirect('comment:comment_page_with_pk', pk=board_pk)
