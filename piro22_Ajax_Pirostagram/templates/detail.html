@@ -75,7 +75,7 @@
           <div class="likes">{{ post.like }}명이 좋아합니다.</div>
           <div class="caption">
             <span class="username">username</span>
-            <span>content</span>
+            <span>{{ post.content }}</span>
           </div>
           <a class="comments" href="{% url 'comment:comment_page_with_pk' post.id %}">댓글 모두 보기</a>
           <div class="date">{{ post.created_at }}</div>

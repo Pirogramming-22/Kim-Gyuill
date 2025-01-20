@@ -6,6 +6,7 @@ from .forms import PostForm
 from .models import Board
 from comment.models import Comment
 import json
+from django.db.models import Q
 
 # 프로필 페이지
 def profile_page(request):
@@ -74,3 +75,22 @@ def like_post(request):
 def search_page(request):
     boards = Board.objects.all()
     return render(request, 'search.html', {'boards': boards})
+
+# 실시간 검색
+def search_posts(request):
+    try:
+        query = request.GET.get('q', '')
+        if query:
+            boards = Board.objects.filter(Q(content__icontains=query))
+        else:
+            boards = Board.objects.none()
+
+        results = [
+            {'id': board.id, 'content': board.content, 'image': board.image.url if board.image else ''}
+            for board in boards
+        ]
+
+        return JsonResponse({'results': results}, status=200)
+
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
