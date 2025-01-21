@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirostagram</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/search.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__search">
+          <img src="{% static 'assets/icons/돋보기_기본.svg' %}" alt="돋보기 아이콘" class="search__icon" />
+          <input type="text" class="search" id="searchInput" placeholder="검색" />
+        </div>
+      </header>
+      <main>
+        <section class="posts">
+          <article class="posts__contents">
+            {% for board in boards %}
+              <div class="posts__photo">
+                <a href="{% url 'board:detail_page' board.pk %}">
+                  {% if board.image %}
+                    <img src="{{ board.image.url }}" alt="게시물 이미지" />
+                  {% else %}
+                    <img src="{% static 'assets/images/defaultImage.png' %}" alt="기본 이미지" />
+                  {% endif %}
+                </a>
+              </div>
+            {% endfor %}
+          </article>
+        </section>
+      </main>
+      <footer class="footer_nav">
+        <button class="navBar"><img src="{% static 'assets/icons/집_기본.svg' %}" data-default-src="{% static 'assets/icons/집_기본.svg' %}" data-selected-src="{% static 'assets/icons/집_터치.svg' %}" alt="집" /></button>
+        <button class="navBar  navBar--selected"><a href="{% url 'board:search_page' %}"><img src="{% static 'assets/icons/돋보기_기본.svg' %}" data-default-src="{% static 'assets/icons/돋보기_기본.svg' %}" data-selected-src="{% static 'assets/icons/돋보기_터치.svg' %}" alt="돋보기" /></a></button>
+        <button class="navBar"><a href="{% url 'board:upload_page' %}"><img src="{% static 'assets/icons/post.svg' %}" data-default-src="{% static 'assets/icons/post.svg' %}" data-selected-src="{% static 'assets/icons/post.svg' %}" alt="게시물 작성" /></a></button>
+        <button class="navBar"><img src="{% static 'assets/icons/릴스_기본.png' %}" data-default-src="{% static 'assets/icons/릴스_기본.png' %}" data-selected-src="{% static 'assets/icons/릴스_터치.png' %}" alt="릴스" /></button>
+        <button class="navBar">
+          <a href="{% url 'board:profile_page' %}">
+            <div class="nav_profile__image">
+              <img src="{% static 'assets/images/profilePicture.png' %}" data-default-src="{% static 'assets/images/profilePicture.png' %}" data-selected-src="{% static 'assets/images/profilePicture.png' %}" alt="프로필 사진" />
+            </div>
+          </a>
+        </button>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{% static 'js/nav.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+
+    
+  </body>
+</html>

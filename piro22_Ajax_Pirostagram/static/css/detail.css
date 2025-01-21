@@ -1,0 +1,168 @@
+
+
+
+.post-container {
+    width: 100%;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #2a2a2a;
+    background-color: #000;
+}
+
+.left_button{
+    display: flex;
+}
+
+.left_button > div{
+    padding-left: 10px;
+}
+
+.header .back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header .username {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.header .menu-button {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.post-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.post-content .post-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.detail_buttons{
+    display: flex;
+    justify-content: space-between;
+
+}
+.detail_left_buttons{
+    display: flex;
+}
+
+.detail_left_buttons > div{
+    padding: 6px;
+    font-size: 16px;
+}
+
+.like-button svg{
+    width: 16px;
+    height: 16px;
+}
+
+.like-button svg:hover{
+    cursor: pointer;
+}
+.like-count {
+    margin-bottom: 2px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.actions {
+    padding: 5px;
+    background-color: #000;
+}
+
+.actions .likes {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.actions .caption {
+    margin-bottom: 8px;
+}
+
+.actions .caption .username {
+    font-weight: bold;
+}
+
+.actions .comments-disabled {
+    color: #999;
+    font-size: 14px;
+}
+
+.actions .comments-disabled a {
+    color: #4c9aff;
+    text-decoration: none;
+}
+
+.actions .date {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+}
+
+
+
+.menu-button-container {
+    position: relative;
+}
+
+/* 수정 버튼 및 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    position: absolute;
+    top: 40px; /* 버튼 바로 아래 */
+    right: 10px;
+    background-color: #1a1a1a; /* 더 진한 배경 */
+    border: 1px solid #333; /* 테두리 */
+    border-radius: 8px; /* 둥근 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 그림자 */
+    z-index: 1000;
+    padding: 8px 0; /* 위아래 여백 */
+    min-width: 65px; /* 최소 너비 */
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff; /* 텍스트 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    text-align: left;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background-color: #333; /* 호버 효과 */
+}
+
+/* 숨김 클래스 */
+.hidden {
+    display: none;
+}
